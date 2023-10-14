@@ -1,0 +1,9 @@
+{
+  "name" : "engineering-for-dummies",
+  "version": "0.2.4",
+  "title" : "Engineering for Dummies",
+  "author" : "LuckyLMJ",
+  "description" : "A simple overhaul mod",
+  "factorio_version" : "1.1",
+  "dependencies" : ["base >= 1.1", "disable-expensive-mode", "furnace-recipe-selection"]
+}
