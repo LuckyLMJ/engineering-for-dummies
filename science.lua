@@ -1,5 +1,6 @@
 --red sci
-data.raw["recipe"]["automation-science-pack"].ingredients = {{"iron-gear-wheel", 1}, {"copper-cable", 2}}
+data.raw["recipe"]["automation-science-pack"].ingredients = {{"iron-gear-wheel", 1}, {"glass-plate", 1}, {"copper-cable", 3}};
+data.raw["recipe"]["automation-science-pack"].enabled = false;
 
 --green sci
 data.raw["recipe"]["logistic-science-pack"].ingredients = {{"underground-belt", 1}, {"electronic-circuit", 2}, {"pipe", 3}}
@@ -7,8 +8,6 @@ data.raw["recipe"]["logistic-science-pack"].energy_required = 12
 data.raw["recipe"]["logistic-science-pack"].category = "advanced-crafting"
 data.raw["recipe"]["logistic-science-pack"].results = {{"logistic-science-pack", 2}}
 data.raw["technology"]["logistic-science-pack"].prerequisites = {"logistics", "glass-processing"}
---red sci
-data.raw["recipe"]["automation-science-pack"].ingredients = {{"iron-gear-wheel", 1}, {"copper-cable", 2}}
 
 --green sci
 data.raw["recipe"]["logistic-science-pack"].ingredients = {{"underground-belt", 1}, {"electronic-circuit", 2}, {"pipe", 3}}
@@ -58,7 +57,6 @@ data.raw["technology"]["space-science-pack"].prerequisites = {"rocket-silo", "el
 --other tweaks
 data.raw["technology"]["gun-turret"].prerequisites = {"military"}
 data.raw["technology"]["stone-wall"].prerequisites = {"military"}
-data.raw["technology"]["logistics"].prerequisites = {"automation"}
 data.raw["technology"]["rocket-silo"].prerequisites = {"rocket-control-unit", "production-science-pack", "rocketry"}
 data.raw["technology"]["rocket-silo"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, 
                                                           {"chemical-science-pack", 1}, {"production-science-pack", 1},
@@ -66,3 +64,5 @@ data.raw["technology"]["rocket-silo"].unit.ingredients = {{"automation-science-p
 data.raw["technology"]["space-science-pack"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, 
                                                                  {"chemical-science-pack", 1}, {"production-science-pack", 1},
                                                                  {"utility-science-pack", 1}, {"military-science-pack", 1}}
+
+table.insert(data.raw["lab"]["lab"].inputs, "burner-science-pack"); --so the regular lab can use the burner science packs.

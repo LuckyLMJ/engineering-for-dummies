@@ -41,7 +41,44 @@ data:extend(
             },
             stack_size = 25,
             subgroup = "intermediate-product"
+        },
+        {
+            type = "item",
+            name = "burner-testing-chamber",
+            icon = "__base__/graphics/icons/assembling-machine-1.png",
+            icon_size = 64, icon_mipmaps = 4,
+            subgroup = "production-machine",
+            order = "a[burner-testing-chamber]",
+            place_result = "burner-testing-chamber",
+            stack_size = 50
+        },
+        {
+            type = "tool",
+            name = "burner-science-pack",
+            localised_description = {"item-description.science-pack"},
+            icons = {
+                {
+                    icon = "__base__/graphics/icons/space-science-pack.png",
+                    tint = {1, 0.5, 0.1}
+                }
+            },
+            icon_size = 64, icon_mipmaps = 4,
+            subgroup = "science-pack",
+            order = "a[burner-science-pack]",
+            stack_size = 200,
+            durability = 1,
+            durability_description_key = "description.science-pack-remaining-amount-key",
+            durability_description_value = "description.science-pack-remaining-amount-value"
+        },
+        {
+            type = "item",
+            name = "burner-lab",
+            icon = "__base__/graphics/icons/lab.png",
+            icon_size = 64, icon_mipmaps = 4,
+            subgroup = "production-machine",
+            order = "g[burner-lab]",
+            place_result = "burner-lab",
+            stack_size = 10
         }
     }
 )
-

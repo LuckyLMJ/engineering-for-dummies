@@ -45,7 +45,7 @@ data:extend(
             type = "recipe",
             name = "alt-electronic-circuit-wood",
             category = "crafting",
-            enabled = true,
+            enabled = false,
             energy_required = 0.5,
             ingredients = {
                 {"wood", 1},
@@ -57,7 +57,7 @@ data:extend(
             type = "recipe",
             name = "alt-electronic-circuit-plastic",
             category = "crafting-with-fluid",
-            enabled = true,
+            enabled = false,
             energy_required = 0.5,
             ingredients = {
                 {"plastic-bar", 1},
@@ -65,6 +65,53 @@ data:extend(
                 {"copper-cable", 5}
             },
             results = {{"electronic-circuit", 2}}
+        },
+        {
+            type = "recipe",
+            name = "burner-science-pack",
+            category = "burner-testing",
+            enabled = true,
+            energy_required = 5,
+            ingredients = {
+                {"iron-plate", 1},
+                {"coal", 1}
+            },
+            results = {{"burner-science-pack", 1}}
+        },
+        {
+            type = "recipe",
+            name = "burner-lab",
+            category = "crafting",
+            enabled = true,
+            energy_required = 3,
+            ingredients = {
+                {"iron-plate", 10},
+                {"iron-gear-wheel", 3},
+                {"stone-furnace", 1}
+            },
+            results = {{"burner-lab", 1}}
+        },
+        {
+            type = "recipe",
+            name = "burner-testing-chamber",
+            category = "crafting",
+            enabled = true,
+            energy_required = 3,
+            ingredients = {
+                {"iron-plate", 30},
+                {"iron-stick", 4},
+                {"stone-furnace", 1}
+            },
+            results = {{"burner-testing-chamber", 1}}
+        },
+    }
+)
+
+data:extend(
+    {
+        {
+            type = "recipe-category",
+            name = "burner-testing"
         }
     }
 )
@@ -72,3 +119,4 @@ data:extend(
 allowProductivity("space-science-pack")
 allowProductivity("sand")
 allowProductivity("glass-plate")
+allowProductivity("burner-science-pack")

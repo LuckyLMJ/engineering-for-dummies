@@ -3,7 +3,7 @@ require("science")
 data.raw["recipe"]["steel-plate"].ingredients = {{"iron-plate", 4}, {"coal", 2}}
 data.raw["recipe"]["electronic-circuit"].ingredients = {{"glass-plate", 1}, {"copper-cable", 3}}
 data.raw["recipe"]["electronic-circuit"].enabled = false;
-data.raw["technology"]["electronics"].prerequisites = {"glass-processing"}
+data.raw["technology"]["electronics"].prerequisites = {"glass-processing", "electricity"}
 
 --we can't just add to the effects table if it doesn't exist (as in vanilla, the electronics research has no unlocks)
 --so we have to make an empty table if it doesn't exist
@@ -25,7 +25,7 @@ data.raw["recipe"]["solar-panel"].ingredients = {{"copper-plate", 15}, {"steel-p
 data.raw["recipe"]["electric-furnace"].ingredients = {{"advanced-circuit", 5}, {"steel-plate", 10}, {"stone-brick", 10}, {"glass-plate", 5}}
 data.raw["recipe"]["chemical-plant"].ingredients = {{"electronic-circuit", 5}, {"steel-plate", 5}, {"glass-plate", 5}, {"pipe", 5}}
 data.raw["recipe"]["storage-tank"].ingredients = {{"steel-plate", 5}, {"glass-plate", 10}}
-data.raw["technology"]["fluid-handling"].prerequisites = {"glass-processing"}
+data.raw["technology"]["fluid-handling"].prerequisites = {"glass-processing", "logistic-science-pack"}
 data.raw["recipe"]["engine-unit"].ingredients = {{"iron-gear-wheel", 1}, {"glass-plate", 1}, {"steel-plate", 1}}
 data.raw["technology"]["engine"].prerequisites = {"logistic-science-pack", "steel-processing", "glass-processing"}
 
@@ -33,10 +33,6 @@ data.raw["recipe"]["pipe"].ingredients = {{"iron-plate", 1}, {"glass-plate", 1}}
 data.raw["recipe"]["pipe"].results = {{"pipe", 2}}
 data.raw["recipe"]["pipe"].enabled = false
 data.raw["recipe"]["pipe-to-ground"].enabled = false
-
-data.raw["recipe"]["boiler"].ingredients = {{"stone-furnace", 1}, {"iron-plate", 10}}
-data.raw["recipe"]["steam-engine"].ingredients = {{"iron-plate", 10}, {"iron-gear-wheel", 5}, {"iron-stick", 5}}
-data.raw["recipe"]["offshore-pump"].ingredients = {{"iron-plate", 5}, {"electronic-circuit", 3}, {"iron-gear-wheel", 3}}
 
 data.raw["recipe"]["low-density-structure"].ingredients =  {{"copper-plate", 15}, {"steel-plate", 2}, {"plastic-bar", 4}, {"glass-plate", 5}}
 
@@ -67,3 +63,44 @@ data.raw["recipe"]["kovarex-enrichment-process"].ingredients = {{"uranium-235", 
 --expensive personal reactors
 data.raw["recipe"]["fusion-reactor-equipment"].ingredients = {{"processing-unit", 150}, {"low-density-structure", 50}, {"uranium-fuel-cell", 10}}
 data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"utility-science-pack", "uranium-processing", "power-armor", "military-science-pack"}
+
+
+--burner phase addition
+data.raw["technology"]["automation"].prerequisites = {"electricity"}
+data.raw["technology"]["optics"].prerequisites = {"electricity"}
+data.raw["technology"]["military"].prerequisites = {"automation-science-pack"}
+data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack"}
+data.raw["technology"]["logistics"].unit.ingredients = {{"burner-science-pack", 1}}
+data.raw["technology"]["logistics"].unit.count = 25;
+data.raw["technology"]["military"].unit.ingredients = {{"burner-science-pack", 1}}
+data.raw["technology"]["military"].unit.count = 25;
+data.raw["technology"]["automation"].unit.count = 50;
+data.raw["recipe"]["splitter"].ingredients = {{"copper-plate", 5}, {"iron-gear-wheel", 3}, {"transport-belt", 2}}
+
+data.raw["recipe"]["inserter"].enabled = false;
+data.raw["recipe"]["electric-mining-drill"].enabled = false;
+data.raw["recipe"]["small-electric-pole"].enabled = false;
+data.raw["recipe"]["steam-engine"].enabled = false;
+data.raw["recipe"]["offshore-pump"].enabled = false;
+data.raw["recipe"]["boiler"].enabled = false;
+data.raw["recipe"]["lab"].enabled = false;
+
+data.raw["inserter"]["burner-inserter"].energy_source = {type = "void"};
+data.raw["inserter"]["burner-inserter"].rotation_speed = 0.005;
+
+data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --expand burner drill area to 4x4
+--data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
+
+for _, tech in pairs(data.raw.technology) do
+    local doesBurnerExist = false;
+    for _, ingredient in pairs(tech.unit.ingredients) do
+        if (ingredient.name == "burner-science-pack" or ingredient[1] == "burner-science-pack") then
+            doesBurnerExist = true;
+            break;
+        end
+    end
+
+    if (not doesBurnerExist) then
+        table.insert(tech.unit.ingredients, {"burner-science-pack", 1})
+    end
+end
