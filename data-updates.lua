@@ -105,3 +105,6 @@ for _, tech in pairs(data.raw.technology) do
         table.insert(tech.unit.ingredients, {"burner-science-pack", 1})
     end
 end
+
+data.raw["recipe"]["lab"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 5}, {"burner-lab", 1}, {"transport-belt", 4}}
+data.raw["recipe"]["assembling-machine-1"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 3}, {"burner-assembling-machine", 1}}

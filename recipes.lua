@@ -99,7 +99,7 @@ data:extend(
             enabled = true,
             energy_required = 3,
             ingredients = {
-                {"iron-plate", 20},
+                {"iron-plate", 10},
                 {"copper-cable", 4},
                 {"stone-brick", 4},
                 {"stone-furnace", 1}
