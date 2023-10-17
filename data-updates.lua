@@ -3,6 +3,7 @@ require("science")
 data.raw["recipe"]["steel-plate"].ingredients = {{"iron-plate", 4}, {"coal", 2}}
 data.raw["recipe"]["electronic-circuit"].ingredients = {{"glass-plate", 1}, {"copper-cable", 3}}
 data.raw["recipe"]["electronic-circuit"].enabled = false;
+data.raw["recipe"]["electronic-circuit"].category = "advanced-crafting";
 data.raw["technology"]["electronics"].prerequisites = {"glass-processing", "electricity"}
 
 --we can't just add to the effects table if it doesn't exist (as in vanilla, the electronics research has no unlocks)

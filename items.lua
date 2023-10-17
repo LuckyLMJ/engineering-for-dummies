@@ -39,7 +39,7 @@ data:extend(
                     tint = {0.75, 0.8, 1, 0.5}
                 }
             },
-            stack_size = 25,
+            stack_size = 100,
             subgroup = "intermediate-product"
         },
         {
