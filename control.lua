@@ -40,7 +40,7 @@ function speedup_burners(_event)
         end
 
         global["burner-speedups"]["burner-mining-drill"][unitNumber] = speedupValue
-        if (speedupValue > 0) then
+        if (speedupValue > 0 and isCrafting) then
             local speed = drill.prototype.mining_speed
 
             drill.mining_progress = drill.mining_progress + (((speedupValue * speed)) / 60)
@@ -79,10 +79,13 @@ function speedup_burners(_event)
         end
 
         global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue
-        if (speedupValue > 0) then
+        if (speedupValue > 0 and isCrafting) then
             local speed = assembler.prototype.crafting_speed
+            local craftingTime = assembler.get_recipe().prototype.energy
 
-            assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed)) / 60)
+            if (assembler.crafting_progress > 0) then
+                assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed / craftingTime)) / 60)
+            end
         end
     end
 end

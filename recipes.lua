@@ -85,7 +85,8 @@ data:extend(
             enabled = true,
             energy_required = 3,
             ingredients = {
-                {"iron-plate", 10},
+                {"iron-plate", 30},
+                {"stone-brick", 5},
                 {"iron-gear-wheel", 3},
                 {"stone-furnace", 1}
             },
@@ -100,6 +101,7 @@ data:extend(
             ingredients = {
                 {"iron-plate", 30},
                 {"copper-cable", 4},
+                {"stone-brick", 2},
                 {"stone-furnace", 1}
             },
             results = {{"burner-assembling-machine", 1}}
