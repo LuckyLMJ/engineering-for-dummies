@@ -45,7 +45,12 @@ data:extend(
         {
             type = "item",
             name = "burner-assembling-machine",
-            icon = "__base__/graphics/icons/assembling-machine-1.png",
+            icons = {
+                {
+                icon = "__base__/graphics/icons/assembling-machine-1.png",
+                tint = {1, 0.9, 0.7}
+                }
+            },
             icon_size = 64, icon_mipmaps = 4,
             subgroup = "production-machine",
             order = "a[assembling-machine-0]",
@@ -73,7 +78,12 @@ data:extend(
         {
             type = "item",
             name = "burner-lab",
-            icon = "__base__/graphics/icons/lab.png",
+            icons = {
+                {
+                icon = "__base__/graphics/icons/lab.png",
+                tint = {1, 0.9, 0.7}
+                }
+            },
             icon_size = 64, icon_mipmaps = 4,
             subgroup = "production-machine",
             order = "g[burner-lab]",
