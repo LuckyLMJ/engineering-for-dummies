@@ -71,7 +71,7 @@ data:extend(
             name = "burner-science-pack",
             category = "burner-testing",
             enabled = true,
-            energy_required = 5,
+            energy_required = 3,
             ingredients = {
                 {"iron-plate", 1},
                 {"coal", 1}
