@@ -86,7 +86,7 @@ data.raw["recipe"]["boiler"].enabled = false;
 data.raw["recipe"]["lab"].enabled = false;
 
 data.raw["inserter"]["burner-inserter"].energy_source = {type = "void"};
-data.raw["inserter"]["burner-inserter"].rotation_speed = 0.005;
+data.raw["inserter"]["burner-inserter"].rotation_speed = 0.0075;
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --expand burner drill area to 4x4
 --data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
