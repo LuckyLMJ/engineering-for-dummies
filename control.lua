@@ -43,7 +43,7 @@ function speedup_burners(_event)
         if (speedupValue > 0) then
             local speed = drill.prototype.mining_speed
 
-            drill.mining_progress = drill.mining_progress + (((speedupValue * speed)) / 120) --meaning the effect is 1/2 as good as a mining speed increase
+            drill.mining_progress = drill.mining_progress + (((speedupValue * speed)) / 60)
         end
     end
 
@@ -82,7 +82,7 @@ function speedup_burners(_event)
         if (speedupValue > 0) then
             local speed = assembler.prototype.crafting_speed
 
-            assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed)) / 120) --meaning the effect is 1/2 as good as a mining speed increase
+            assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed)) / 60)
         end
     end
 end

@@ -68,7 +68,6 @@ data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"utility-sci
 --burner phase addition
 data.raw["technology"]["automation"].prerequisites = {"electricity"}
 data.raw["technology"]["optics"].prerequisites = {"electricity"}
-data.raw["technology"]["military"].prerequisites = {"automation-science-pack"}
 data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack"}
 data.raw["technology"]["logistics"].unit.ingredients = {{"burner-science-pack", 1}}
 data.raw["technology"]["logistics"].unit.count = 25;
@@ -76,6 +75,7 @@ data.raw["technology"]["military"].unit.ingredients = {{"burner-science-pack", 1
 data.raw["technology"]["military"].unit.count = 25;
 data.raw["technology"]["automation"].unit.count = 50;
 data.raw["recipe"]["splitter"].ingredients = {{"copper-plate", 5}, {"iron-gear-wheel", 3}, {"transport-belt", 2}}
+data.raw["recipe"]["burner-mining-drill"].ingredients = {{"copper-plate", 2}, {"iron-plate", 5}, {"iron-gear-wheel", 5}, {"stone-furnace", 2}}
 
 data.raw["recipe"]["inserter"].enabled = false;
 data.raw["recipe"]["electric-mining-drill"].enabled = false;
