@@ -95,10 +95,7 @@ function speedup_burners(_event)
         if (speedupValue > 0 and isCrafting) then
             local speed = assembler.prototype.crafting_speed
             local craftingTime = assembler.get_recipe().prototype.energy
-
-            if (assembler.crafting_progress > 0) then
-                assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed / craftingTime)) / 60)
-            end
+            assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed / craftingTime)) / 60)
         end
     end
 end
