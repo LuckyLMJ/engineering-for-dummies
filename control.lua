@@ -56,6 +56,7 @@ function speedup_burners(_event)
             local speed = drill.prototype.mining_speed
 
             drill.mining_progress = drill.mining_progress + (((speedupValue * speed)) / 60)
+            drill.mining_progress = math.min(drill.mining_progress, drill.mining_target.prototype.mineable_properties.mining_time)
         end
     end
 
@@ -95,7 +96,7 @@ function speedup_burners(_event)
         if (speedupValue > 0 and isCrafting) then
             local speed = assembler.prototype.crafting_speed
             local craftingTime = assembler.get_recipe().prototype.energy
-            assembler.crafting_progress = assembler.crafting_progress + (((speedupValue * speed / craftingTime)) / 60)
+            assembler.crafting_progress = math.min(assembler.crafting_progress + (((speedupValue * speed / craftingTime)) / 60), 1)
         end
     end
 end

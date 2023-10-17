@@ -25,7 +25,7 @@ data.raw["recipe"]["solar-panel"].ingredients = {{"copper-plate", 15}, {"steel-p
 data.raw["recipe"]["electric-furnace"].ingredients = {{"advanced-circuit", 5}, {"steel-plate", 10}, {"stone-brick", 10}, {"glass-plate", 5}}
 data.raw["recipe"]["chemical-plant"].ingredients = {{"electronic-circuit", 5}, {"steel-plate", 5}, {"glass-plate", 5}, {"pipe", 5}}
 data.raw["recipe"]["storage-tank"].ingredients = {{"steel-plate", 5}, {"glass-plate", 10}}
-data.raw["technology"]["fluid-handling"].prerequisites = {"glass-processing", "logistic-science-pack"}
+data.raw["technology"]["fluid-handling"].prerequisites = {"engine-unit"}
 data.raw["recipe"]["engine-unit"].ingredients = {{"iron-gear-wheel", 1}, {"glass-plate", 1}, {"steel-plate", 1}}
 data.raw["technology"]["engine"].prerequisites = {"logistic-science-pack", "steel-processing", "glass-processing"}
 

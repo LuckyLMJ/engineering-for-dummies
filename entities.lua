@@ -92,7 +92,7 @@ data:extend(
                 fade_in_ticks = 4,
                 fade_out_ticks = 20
             },
-            fast_replaceable_group = "assembling-machine"
+            fast_replaceable_group = "assembling-machine",
         }
     }
 )
@@ -111,7 +111,7 @@ burnerLab.energy_source = {
                                 maximum_intensity = 0.95
                             }
                           }
-burnerLab.researching_speed = 1.5;
+burnerLab.researching_speed = 0.75;
 burnerLab.module_specification = {module_slots = 0};
 burnerLab.inputs = {"burner-science-pack", "automation-science-pack"};
 burnerLab.minable = {mining_time = 0.2, result = "burner-lab"}
