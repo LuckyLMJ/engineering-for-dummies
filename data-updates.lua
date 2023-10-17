@@ -24,9 +24,9 @@ data.raw["recipe"]["solar-panel"].ingredients = {{"copper-plate", 15}, {"steel-p
 --glass
 data.raw["recipe"]["electric-furnace"].ingredients = {{"advanced-circuit", 5}, {"steel-plate", 10}, {"stone-brick", 10}, {"glass-plate", 5}}
 data.raw["recipe"]["chemical-plant"].ingredients = {{"electronic-circuit", 5}, {"steel-plate", 5}, {"glass-plate", 5}, {"pipe", 5}}
-data.raw["recipe"]["storage-tank"].ingredients = {{"steel-plate", 5}, {"glass-plate", 10}}
+data.raw["recipe"]["storage-tank"].ingredients = {{"steel-plate", 5}, {"glass-plate", 10}, {"pipe", 5}}
 data.raw["technology"]["fluid-handling"].prerequisites = {"engine"}
-data.raw["recipe"]["engine-unit"].ingredients = {{"iron-gear-wheel", 1}, {"glass-plate", 1}, {"steel-plate", 1}}
+data.raw["recipe"]["engine-unit"].ingredients = {{"iron-gear-wheel", 1}, {"pipe", 3}, {"steel-plate", 1}}
 data.raw["technology"]["engine"].prerequisites = {"logistic-science-pack", "steel-processing", "glass-processing"}
 
 data.raw["recipe"]["pipe"].ingredients = {{"iron-plate", 1}, {"glass-plate", 1}}
@@ -87,6 +87,10 @@ data.raw["recipe"]["lab"].enabled = false;
 
 data.raw["inserter"]["burner-inserter"].energy_source = {type = "void"};
 data.raw["inserter"]["burner-inserter"].rotation_speed = 0.0075;
+
+data.raw["recipe"]["burner-inserter"].ingredients = {{"iron-stick", 1}, {"iron-gear-wheel", 1}, {"iron-plate", 1}};
+data.raw["recipe"]["inserter"].ingredients = {{"burner-inserter", 1}, {"electronic-circuit", 1}, {"iron-plate", 1}};
+data.raw["recipe"]["long-handed-inserter"].ingredients = {{"inserter", 1}, {"iron-stick", 1}, {"iron-plate", 1}};
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --expand burner drill area to 4x4
 data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 0.35
