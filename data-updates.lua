@@ -94,6 +94,7 @@ data.raw["recipe"]["long-handed-inserter"].ingredients = {{"inserter", 1}, {"iro
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --expand burner drill area to 4x4
 data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 0.35
+data.raw["recipe"]["electric-mining-drill"].ingredients = {{"iron-plate", 5}, {"burner-mining-drill", 1}, {"electronic-circuit", 4}, {"iron-gear-wheel", 4}}
 --data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
 
 for _, tech in pairs(data.raw.technology) do
