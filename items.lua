@@ -26,6 +26,7 @@ data:extend(
                 }
             },
             stack_size = 25,
+            order = "a[sand]",
             subgroup = "intermediate-product"
         },
         {
@@ -40,6 +41,7 @@ data:extend(
                 }
             },
             stack_size = 100,
+            order = "a[glass-plate]",
             subgroup = "intermediate-product"
         },
         {
@@ -89,6 +91,21 @@ data:extend(
             order = "g[burner-lab]",
             place_result = "burner-lab",
             stack_size = 10
+        },
+        {
+            type = "item",
+            name = "salt",
+            icon_size = 64,
+            icon_mipmaps = 4,
+            icons = {
+                {
+                    icon = "__engineering-for-dummies__/graphics/icons/sand.png",
+                    tint = {0.7, 1, 1}
+                }
+            },
+            stack_size = 25,
+            subgroup = "intermediate-product",
+            order = "a[salt]",
         }
     }
 )

@@ -36,7 +36,7 @@ data.raw["recipe"]["rocket-control-unit"].ingredients = {{type = "fluid", name =
 data.raw["recipe"]["rocket-control-unit"].category = "crafting-with-fluid"
 data.raw["technology"]["rocket-control-unit"].prerequisites = {"utility-science-pack"}
 
-data.raw["recipe"]["rocket-fuel"].ingredients = {{type = "fluid", name = "light-oil", amount=10}, {type = "fluid", name = "steam", amount=100}, {type = "item", name = "solid-fuel", amount = 10}}
+data.raw["recipe"]["rocket-fuel"].ingredients = {{type = "fluid", name = "light-oil", amount=10}, {type = "fluid", name = "oxygen", amount=100}, {type = "item", name = "solid-fuel", amount = 10}}
 data.raw["recipe"]["rocket-fuel"].category = "chemistry"
 
 data.raw["recipe"]["satellite"].ingredients = {{type = "fluid", name = "lubricant", amount=100}, {type = "item", name = "accumulator", amount = 90}, {type = "item", name = "solar-panel", amount = 90}, {type = "item", name = "processing-unit", amount = 90}, {type = "item", name = "radar", amount = 2}, {type = "item", name = "rocket-fuel", amount = 100}, {type = "item", name = "low-density-structure", amount = 100}}

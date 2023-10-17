@@ -6,6 +6,7 @@ data.raw["recipe"]["electronic-circuit"].enabled = false;
 data.raw["recipe"]["electronic-circuit"].category = "advanced-crafting";
 data.raw["technology"]["electronics"].prerequisites = {"glass-processing", "electricity"}
 
+
 --we can't just add to the effects table if it doesn't exist (as in vanilla, the electronics research has no unlocks)
 --so we have to make an empty table if it doesn't exist
 local effects = data.raw["technology"]["electronics"].effects or {}
@@ -17,7 +18,7 @@ effects = data.raw["technology"]["advanced-electronics"].effects or {}
 table.insert(effects, {type = "unlock-recipe", recipe = "alt-electronic-circuit-plastic"})
 data.raw["technology"]["advanced-electronics"].effects = effects;
 
-data.raw["recipe"]["advanced-circuit"].ingredients = {{"plastic-bar", 1}, {"electronic-circuit", 2}, {"copper-cable", 5}, {type = "fluid", name = "sulfuric-acid", amount = 1}}
+data.raw["recipe"]["advanced-circuit"].ingredients = {{"plastic-bar", 1}, {"electronic-circuit", 2}, {"copper-cable", 5}, {type = "fluid", name = "hydrochloric-acid", amount = 1}}
 data.raw["recipe"]["advanced-circuit"].category = "crafting-with-fluid"
 
 data.raw["recipe"]["solar-panel"].ingredients = {{"copper-plate", 15}, {"steel-plate", 5}, {"glass-plate", 15}}
@@ -52,7 +53,7 @@ data.raw["recipe"]["productivity-module-2"].category = "crafting-with-fluid"
 data.raw["recipe"]["effectivity-module-2"].ingredients = {{"electric-engine-unit", 4}, {"processing-unit", 5}, {"effectivity-module", 4}};
 data.raw["technology"]["effectivity-module-2"].prerequisites = {"effectivity-module", "advanced-electronics-2", "electric-engine"}
 
-data.raw["recipe"]["speed-module-3"].ingredients = {{"uranium-235", 1}, {"processing-unit", 5}, {"speed-module-2", 4}};
+data.raw["recipe"]["speed-module-3"].ingredients = {{"uranium-235", 1}, {"processing-unit", 5   }, {"speed-module-2", 4}};
 data.raw["recipe"]["productivity-module-3"].ingredients = {{type = "fluid", name = "lubricant", amount = 50}, {"low-density-structure", 6}, {"processing-unit", 5}, {"productivity-module-2", 4}};
 data.raw["recipe"]["productivity-module-3"].category = "crafting-with-fluid"
 data.raw["recipe"]["effectivity-module-3"].ingredients = {{"flying-robot-frame", 4}, {"processing-unit", 5}, {"effectivity-module-2", 4}};
@@ -114,3 +115,36 @@ end
 
 data.raw["recipe"]["lab"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 5}, {"burner-lab", 1}, {"transport-belt", 4}}
 data.raw["recipe"]["assembling-machine-1"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 3}, {"burner-assembling-machine", 1}}
+
+
+-------------------------FLUIDS-------------------------
+data.raw["recipe"]["sulfuric-acid"].ingredients = {{"sulfur", 5}, {type = "fluid", name = "distilled-water", amount = 100}, {"iron-plate", 1}}
+data.raw["recipe"]["plastic-bar"].ingredients = {{type = "fluid", name = "petroleum-gas", amount = 25}, {type = "fluid", name = "hydrochloric-acid", amount = 1}}
+data.raw["recipe"]["plastic-bar"].results = {{"plastic-bar", 1}, {type = "fluid", name = "hydrogen", amount = 5}}
+data.raw["recipe"]["plastic-bar"].main_product = "plastic-bar"
+
+data.raw["recipe"]["heavy-oil-cracking"].ingredients = {{type = "fluid", name = "steam", amount = 50}, {type = "fluid", name = "heavy-oil", amount = 40}}
+data.raw["recipe"]["light-oil-cracking"].ingredients = {{type = "fluid", name = "hydrogen", amount = 40}, {type = "fluid", name = "light-oil", amount = 30}}
+
+data.raw["recipe"]["sulfur"].ingredients = {{type = "fluid", name = "crude-oil", amount = 20}, {type = "fluid", name = "steam", amount = 50}}
+data.raw["recipe"]["sulfur"].results = {{"sulfur", 2}, {"coal", 1}, {type = "fluid", name = "crude-oil", amount = 5}, {type = "fluid", name = "distilled-water", amount = 40}}
+data.raw["recipe"]["sulfur"].main_product = "sulfur"
+
+data.raw["recipe"]["lubricant"].ingredients = {{type = "fluid", name = "heavy-oil", amount = 10}, {type = "fluid", name = "chlorine", amount = 5}}
+
+--add effects to techs
+local effects = data.raw["technology"]["fluid-handling"].effects or {}
+table.insert(effects, {type = "unlock-recipe", recipe = "water-condensation"})
+table.insert(effects, {type = "unlock-recipe", recipe = "dump-distilled-water"})
+table.insert(effects, {type = "unlock-recipe", recipe = "oxygen-from-air"})
+table.insert(effects, {type = "unlock-recipe", recipe = "water-from-hydrogen-oxygen"})
+table.insert(effects, {type = "unlock-recipe", recipe = "water-electrolysis"})
+table.insert(effects, {type = "unlock-recipe", recipe = "chemical-plant"})
+table.insert(effects, {type = "unlock-recipe", recipe = "hydrochloric-acid"})
+table.insert(effects, {type = "unlock-recipe", recipe = "chlorine"})
+table.insert(effects, {type = "unlock-recipe", recipe = "saltwater-dumping"})
+data.raw["technology"]["fluid-handling"].effects = effects;
+
+local effects = data.raw["technology"]["oil-processing"].effects or {}
+table.insert(effects, {type = "unlock-recipe", recipe = "petrogas-from-hydrogen-coal"})
+data.raw["technology"]["oil-processing"].effects = effects;
