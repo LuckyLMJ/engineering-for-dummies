@@ -22,7 +22,7 @@ function speedup_burners(_event)
     local surface = game.get_surface("nauvis")
     local burnerDrills = surface.find_entities_filtered({name = "burner-mining-drill"});
     for _, drill in ipairs(burnerDrills) do
-        local isCrafting = drill.is_crafting and drill.active and drill.mining_target ~= nil and drill.burner.currently_burning
+        local isCrafting = drill.is_crafting and drill.active and drill.mining_target ~= nil and drill.burner.currently_burning and drill.mining_progress > 0
         local unitNumber = drill.unit_number
 
         local fuelAccel = 1
@@ -41,7 +41,7 @@ function speedup_burners(_event)
         if (isCrafting) then
             speedupValue = speedupValue + 0.0001666*fuelAccel --0.0001666 means it will take approx. 6000 ticks (100 seconds) to build up to top speed
         else
-            speedupValue = speedupValue - 0.01
+            speedupValue = speedupValue - 0.02
         end
 
         if (speedupValue < 0) then
@@ -61,7 +61,7 @@ function speedup_burners(_event)
 
     local burnerAssemblers = surface.find_entities_filtered({name = "burner-assembling-machine"});
     for _, assembler in ipairs(burnerAssemblers) do
-        local isCrafting = assembler.is_crafting and assembler.active and assembler.burner.currently_burning
+        local isCrafting = assembler.is_crafting and assembler.active and assembler.burner.currently_burning and assembler.crafting_progress > 0
         local unitNumber = assembler.unit_number
 
         local fuelAccel = 1
@@ -78,19 +78,20 @@ function speedup_burners(_event)
         local speedupValue = global["burner-speedups"]["burner-assembling-machine"][unitNumber]
         
         if (isCrafting) then
-            speedupValue = speedupValue + 0.0001666*fuelAccel
-        else
-            speedupValue = speedupValue - 0.01
+            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue + 0.0001666*fuelAccel
         end
 
-        if (speedupValue < 0) then
-            speedupValue = 0
-        end
-        if (speedupValue > fuelAccel) then
-            speedupValue = fuelAccel
+        if (not isCrafting) then
+            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue - 0.02
         end
 
-        global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue
+        if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] < 0) then
+            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = 0
+        end
+        if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] > fuelAccel) then
+            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = fuelAccel
+        end
+
         if (speedupValue > 0 and isCrafting) then
             local speed = assembler.prototype.crafting_speed
             local craftingTime = assembler.get_recipe().prototype.energy
