@@ -39,7 +39,7 @@ function speedup_burners(_event)
         local speedupValue = global["burner-speedups"]["burner-mining-drill"][unitNumber]
         
         if (isCrafting) then
-            speedupValue = speedupValue + 0.001*fuelAccel
+            speedupValue = speedupValue + 0.0001666*fuelAccel --0.0001666 means it will take approx. 6000 ticks (100 seconds) to build up to top speed
         else
             speedupValue = speedupValue - 0.01
         end
@@ -78,7 +78,7 @@ function speedup_burners(_event)
         local speedupValue = global["burner-speedups"]["burner-assembling-machine"][unitNumber]
         
         if (isCrafting) then
-            speedupValue = speedupValue + 0.001*fuelAccel
+            speedupValue = speedupValue + 0.0001666*fuelAccel
         else
             speedupValue = speedupValue - 0.01
         end
