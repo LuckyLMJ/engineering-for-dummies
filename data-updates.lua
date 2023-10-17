@@ -142,7 +142,7 @@ table.insert(effects, {type = "unlock-recipe", recipe = "water-electrolysis"})
 table.insert(effects, {type = "unlock-recipe", recipe = "chemical-plant"})
 table.insert(effects, {type = "unlock-recipe", recipe = "hydrochloric-acid"})
 table.insert(effects, {type = "unlock-recipe", recipe = "chlorine"})
-table.insert(effects, {type = "unlock-recipe", recipe = "saltwater-dumping"})
+table.insert(effects, {type = "unlock-recipe", recipe = "dump-saltwater"})
 data.raw["technology"]["fluid-handling"].effects = effects;
 
 local effects = data.raw["technology"]["oil-processing"].effects or {}
