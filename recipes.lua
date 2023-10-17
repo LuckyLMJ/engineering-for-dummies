@@ -93,7 +93,7 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "burner-testing-chamber",
+            name = "burner-assembling-machine",
             category = "crafting",
             enabled = true,
             energy_required = 3,
@@ -102,7 +102,7 @@ data:extend(
                 {"iron-stick", 4},
                 {"stone-furnace", 1}
             },
-            results = {{"burner-testing-chamber", 1}}
+            results = {{"burner-assembling-machine", 1}}
         },
     }
 )

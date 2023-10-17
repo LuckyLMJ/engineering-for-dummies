@@ -44,12 +44,12 @@ data:extend(
         },
         {
             type = "item",
-            name = "burner-testing-chamber",
+            name = "burner-assembling-machine",
             icon = "__base__/graphics/icons/assembling-machine-1.png",
             icon_size = 64, icon_mipmaps = 4,
             subgroup = "production-machine",
-            order = "a[burner-testing-chamber]",
-            place_result = "burner-testing-chamber",
+            order = "a[assembling-machine-0]",
+            place_result = "burner-assembling-machine",
             stack_size = 50
         },
         {

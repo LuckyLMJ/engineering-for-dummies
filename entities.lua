@@ -4,11 +4,11 @@ data:extend(
     {
         {
             type = "assembling-machine",
-            name = "burner-testing-chamber",
+            name = "burner-assembling-machine",
             icon = "__base__/graphics/icons/assembling-machine-1.png",
             icon_size = 64, icon_mipmaps = 4,
             flags = {"placeable-neutral", "placeable-player", "player-creation"},
-            minable = {mining_time = 0.2, result = "burner-testing-chamber"},
+            minable = {mining_time = 0.2, result = "burner-assembling-machine"},
             max_health = 300,
             corpse = "assembling-machine-1-remnants",
             dying_explosion = "assembling-machine-1-explosion",
@@ -64,7 +64,7 @@ data:extend(
                 }
             },
             crafting_categories = {"burner-testing", "crafting"},
-            crafting_speed = 0.75,
+            crafting_speed = 0.5,
             energy_source = {
                 type = "burner",
                 fuel_category = "chemical",
