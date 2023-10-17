@@ -3,22 +3,15 @@ data.raw["recipe"]["automation-science-pack"].ingredients = {{"iron-gear-wheel",
 data.raw["recipe"]["automation-science-pack"].enabled = false;
 
 --green sci
-data.raw["recipe"]["logistic-science-pack"].ingredients = {{"underground-belt", 1}, {"electronic-circuit", 2}, {"pipe", 3}}
+data.raw["recipe"]["logistic-science-pack"].ingredients = {{"underground-belt", 1}, {"electronic-circuit", 4}, {"pipe", 3}}
 data.raw["recipe"]["logistic-science-pack"].energy_required = 12
-data.raw["recipe"]["logistic-science-pack"].category = "advanced-crafting"
-data.raw["recipe"]["logistic-science-pack"].results = {{"logistic-science-pack", 2}}
-data.raw["technology"]["logistic-science-pack"].prerequisites = {"logistics", "glass-processing"}
-
---green sci
-data.raw["recipe"]["logistic-science-pack"].ingredients = {{"underground-belt", 1}, {"electronic-circuit", 2}, {"pipe", 3}}
-data.raw["recipe"]["logistic-science-pack"].energy_required = 12
-data.raw["recipe"]["logistic-science-pack"].category = "advanced-crafting"
+data.raw["recipe"]["logistic-science-pack"].category = "crafting"
 data.raw["recipe"]["logistic-science-pack"].results = {{"logistic-science-pack", 2}}
 data.raw["technology"]["logistic-science-pack"].prerequisites = {"logistics", "automation"}
 
 --mil sci
 data.raw["recipe"]["military-science-pack"].ingredients = {{type = "item", name = "explosives", amount=2}, {type = "item", name = "stone-wall", amount=3}, {type = "item", name = "piercing-rounds-magazine", amount=1}}
-data.raw["recipe"]["military-science-pack"].category = "advanced-crafting"
+data.raw["recipe"]["military-science-pack"].category = "crafting"
 data.raw["recipe"]["military-science-pack"].energy_required = 16
 data.raw["technology"]["military-science-pack"].prerequisites = {"stone-wall", "explosives", "military-2", "automation-2"}
 

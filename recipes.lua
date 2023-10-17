@@ -71,10 +71,10 @@ data:extend(
             name = "burner-science-pack",
             category = "burner-testing",
             enabled = true,
-            energy_required = 3,
+            energy_required = 4,
             ingredients = {
-                {"iron-plate", 1},
-                {"coal", 1}
+                {"stone-brick", 1},
+                {"iron-plate", 1}
             },
             results = {{"burner-science-pack", 1}}
         },
@@ -85,8 +85,8 @@ data:extend(
             enabled = true,
             energy_required = 3,
             ingredients = {
-                {"iron-plate", 30},
-                {"stone-brick", 5},
+                {"iron-plate", 20},
+                {"stone-brick", 4},
                 {"iron-gear-wheel", 3},
                 {"stone-furnace", 1}
             },
@@ -99,9 +99,9 @@ data:extend(
             enabled = true,
             energy_required = 3,
             ingredients = {
-                {"iron-plate", 30},
+                {"iron-plate", 20},
                 {"copper-cable", 4},
-                {"stone-brick", 2},
+                {"stone-brick", 4},
                 {"stone-furnace", 1}
             },
             results = {{"burner-assembling-machine", 1}}
