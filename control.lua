@@ -6,6 +6,18 @@ script.on_init(function()
     global["burner-speedups"]["burner-assembling-machine"] = {}
 end)
 
+script.on_load(function()
+    if (global["burner-speedups"] == nil) then
+        global["burner-speedups"] = {}
+    end
+    if (global["burner-speedups"]["burner-mining-drill"] == nil) then
+        global["burner-speedups"]["burner-mining-drill"] = {}
+    end
+    if (global["burner-speedups"]["burner-assembling-machine"] == nil) then
+        global["burner-speedups"]["burner-assembling-machine"] = {}
+    end
+end)
+
 function speedup_burners(_event)
     local surface = game.get_surface("nauvis")
     local burnerDrills = surface.find_entities_filtered({name = "burner-mining-drill"});
