@@ -124,13 +124,13 @@ data.raw["recipe"]["plastic-bar"].results = {{"plastic-bar", 1}, {type = "fluid"
 data.raw["recipe"]["plastic-bar"].main_product = "plastic-bar"
 
 data.raw["recipe"]["heavy-oil-cracking"].ingredients = {{type = "fluid", name = "steam", amount = 50}, {type = "fluid", name = "heavy-oil", amount = 40}}
-data.raw["recipe"]["light-oil-cracking"].ingredients = {{type = "fluid", name = "hydrogen", amount = 40}, {type = "fluid", name = "light-oil", amount = 30}}
+data.raw["recipe"]["light-oil-cracking"].ingredients = {{type = "fluid", name = "hydrogen", amount = 5}, {type = "fluid", name = "light-oil", amount = 30}}
 
 data.raw["recipe"]["sulfur"].ingredients = {{type = "fluid", name = "crude-oil", amount = 20}, {type = "fluid", name = "steam", amount = 50}}
 data.raw["recipe"]["sulfur"].results = {{"sulfur", 2}, {"coal", 1}, {type = "fluid", name = "crude-oil", amount = 5}, {type = "fluid", name = "distilled-water", amount = 40}}
 data.raw["recipe"]["sulfur"].main_product = "sulfur"
 
-data.raw["recipe"]["lubricant"].ingredients = {{type = "fluid", name = "heavy-oil", amount = 10}, {type = "fluid", name = "chlorine", amount = 5}}
+data.raw["recipe"]["lubricant"].ingredients = {{type = "fluid", name = "heavy-oil", amount = 10}, {type = "fluid", name = "chlorine", amount = 1}}
 
 --add effects to techs
 local effects = data.raw["technology"]["fluid-handling"].effects or {}
