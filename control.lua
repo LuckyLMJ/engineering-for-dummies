@@ -1,20 +1,23 @@
-script.on_nth_tick(30, function(event) speedup_burners(event) end)
+script.on_nth_tick(1, function(event) speedup_burners(event) end)
 
 script.on_init(function()
     global["burner-speedups"] = {}
     global["burner-speedups"]["burner-mining-drill"] = {}
     global["burner-speedups"]["burner-assembling-machine"] = {}
+
+    global["burners"] = {}
+    global["burners"]["burner-mining-drill"] = {}
+    global["burners"]["burner-assembling-machine"] = {}
+    global["burners"]["burner-beacon"] = {}
 end)
 
-script.on_load(function()
-    if (global["burner-speedups"] == nil) then
-        global["burner-speedups"] = {}
+script.on_event(defines.events.on_built_entity, function(event)
+    if (event.created_entity.name == "burner-mining-drill") then
+        table.insert(global["burners"]["burner-mining-drill"], event.created_entity);
     end
-    if (global["burner-speedups"]["burner-mining-drill"] == nil) then
-        global["burner-speedups"]["burner-mining-drill"] = {}
-    end
-    if (global["burner-speedups"]["burner-assembling-machine"] == nil) then
-        global["burner-speedups"]["burner-assembling-machine"] = {}
+
+    if (event.created_entity.name == "burner-assembling-machine") then
+        table.insert(global["burners"]["burner-assembling-machine"], event.created_entity);
     end
 end)
 
@@ -22,15 +25,72 @@ end)
 function speedup_burners(_event)
     local surface = game.get_surface("nauvis")
 
-    for _, beacon in ipairs(surface.find_entities_filtered({name = "burner-beacon"})) do
-        beacon.get_module_inventory().clear()
-        beacon.destroy()
+    if (global["burners"] == nil) then
+        global["burners"] = {}
     end
 
-    local burnerDrills = surface.find_entities_filtered({name = "burner-mining-drill"})
-    for _, drill in ipairs(burnerDrills) do
-        local isCrafting = drill.is_crafting and drill.active and drill.mining_target ~= nil and drill.burner.currently_burning and drill.mining_progress > 0
+    if (global["burners"]["burner-mining-drill"] == nil) then
+        global["burners"]["burner-mining-drill"] = surface.find_entities_filtered({name = "burner-mining-drill"})
+    end
+    if (global["burners"]["burner-assembling-machine"] == nil) then
+        global["burners"]["burner-assembling-machine"] = surface.find_entities_filtered({name = "burner-assembling-machine"})
+    end
+    if (global["burners"]["burner-beacon"] == nil) then
+        global["burners"]["burner-beacon"] = surface.find_entities_filtered({name = "burner-beacon"})
+    end
+
+    local burnerBeacons = global["burners"]["burner-beacon"]
+    for index, beacon in ipairs(burnerBeacons) do
+        if (beacon == nil) then
+            table.remove(global["burners"]["burner-beacon"], index)
+            goto continue
+        end
+
+        if (not beacon.valid) then
+            table.remove(global["burners"]["burner-beacon"], index)
+            goto continue
+        end
+
+        local unitNumber = beacon.unit_number
+        if (unitNumber % 60 ~= game.tick % 60) then
+            goto continue
+        end
+
+        local assemblingMachine = surface.find_entities_filtered({name = 'burner-assembling-machine', area = beacon.bounding_box})[1]
+        local drill = surface.find_entities_filtered({name = 'burner-mining-drill', area = beacon.bounding_box})[1]
+        if (assemblingMachine == nil and drill == nil) then
+            if (global["burners"]["burner-beacon"] ~= nil) then
+                table.remove(global["burners"]["burner-beacon"], index)
+            end
+            beacon.get_module_inventory().clear()
+            beacon.destroy()
+        end
+
+        ::continue::
+    end
+
+    local burnerDrills = global["burners"]["burner-mining-drill"]
+    for index, drill in ipairs(burnerDrills) do
+        if (drill == nil) then
+            if (global["burners"]["burner-mining-drill"] ~= nil) then
+                table.remove(global["burners"]["burner-mining-drill"], index)
+            end
+            goto continue
+        end
+
+        if (not drill.valid) then
+            if (global["burners"]["burner-mining-drill"] ~= nil) then
+                table.remove(global["burners"]["burner-mining-drill"], index)
+            end
+            goto continue
+        end
+
         local unitNumber = drill.unit_number
+        if (unitNumber % 60 ~= game.tick % 60) then
+            goto continue
+        end
+
+        local isCrafting = drill.is_crafting and drill.active and drill.mining_target ~= nil and drill.burner.currently_burning and drill.mining_progress > 0
 
         if (global["burner-speedups"]["burner-mining-drill"][unitNumber] == nil) then
             global["burner-speedups"]["burner-mining-drill"][unitNumber] = 0
@@ -44,16 +104,11 @@ function speedup_burners(_event)
             goto continue
         end
 
-        local fuelAccel = 1
-        if (drill.get_fuel_inventory()[1] ~= nil) then
-            if (drill.get_fuel_inventory()[1].valid_for_read) then
-                fuelAccel = drill.get_fuel_inventory()[1].prototype.fuel_acceleration_multiplier
-            end
-        end
+        local fuelAccel = drill.burner.currently_burning.fuel_acceleration_multiplier or 1
 
         local speedupValue = global["burner-speedups"]["burner-mining-drill"][unitNumber]
         
-        speedupValue = speedupValue + 0.01*fuelAccel*0.5 --0.01 means it'll take 100 seconds to get to full speed
+        speedupValue = speedupValue + 0.01*fuelAccel --0.01 means it'll take 100 seconds to get to full speed
 
         if (speedupValue > fuelAccel) then
             speedupValue = fuelAccel
@@ -63,8 +118,15 @@ function speedup_burners(_event)
 
         local numModules = speedupValue * 10;
         numModules = math.floor(numModules);
+        
+        local beacon = surface.find_entities_filtered({name = 'burner-beacon', area = drill.bounding_box})[1]
+        if (beacon == nil) then
+            beacon = surface.create_entity({name = "burner-beacon", position = drill.position})
+            table.insert(global["burners"]["burner-beacon"], beacon);
+        end
 
-        local beacon = surface.create_entity({name = "burner-beacon", position = drill.position})
+        beacon.get_module_inventory().clear()
+
         local i = 0;
         repeat
             beacon.get_module_inventory().insert({name = "burner-speed-module"})
@@ -73,10 +135,30 @@ function speedup_burners(_event)
         ::continue::
     end
 
-    local burnerAssemblers = surface.find_entities_filtered({name = "burner-assembling-machine"});
-    for _, assembler in ipairs(burnerAssemblers) do
-        local isCrafting = assembler.is_crafting and assembler.active and assembler.burner.currently_burning and assembler.crafting_progress > 0
+    local burnerAssemblers = global["burners"]["burner-assembling-machine"]
+    for index, assembler in ipairs(burnerAssemblers) do
+        if (assembler == nil) then
+            if (global["burners"]["burner-assembling-machine"] ~= nil) then
+                table.remove(global["burners"]["burner-assembling-machine"], index)
+            end
+            goto continue
+        end
+        
+        if (not assembler.valid) then
+            if (global["burners"]["burner-assembling-machine"] ~= nil) then
+                table.remove(global["burners"]["burner-assembling-machine"], index)
+            end
+            goto continue
+        end
+
         local unitNumber = assembler.unit_number
+        if (unitNumber % 60 ~= game.tick % 60) then
+            goto continue
+        end
+
+        script.register_on_entity_destroyed(assembler);
+
+        local isCrafting = assembler.is_crafting and assembler.active and assembler.burner.currently_burning and assembler.crafting_progress > 0
 
         if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] == nil) then
             global["burner-speedups"]["burner-assembling-machine"][unitNumber] = 0
@@ -90,16 +172,11 @@ function speedup_burners(_event)
             goto continue
         end
 
-        local fuelAccel = 1
-        if (assembler.get_fuel_inventory()[1] ~= nil) then
-            if (assembler.get_fuel_inventory()[1].valid_for_read) then
-                fuelAccel = assembler.get_fuel_inventory()[1].prototype.fuel_acceleration_multiplier
-            end
-        end
+        local fuelAccel = assembler.burner.currently_burning.fuel_acceleration_multiplier or 1
 
         local speedupValue = global["burner-speedups"]["burner-assembling-machine"][unitNumber]
         
-        speedupValue = speedupValue + 0.01*fuelAccel*0.5 --0.01 means it'll take 100 seconds to get to full speed
+        speedupValue = speedupValue + 0.01*fuelAccel --0.01 means it'll take 100 seconds to get to full speed
 
         if (speedupValue > fuelAccel) then
             speedupValue = fuelAccel
@@ -110,7 +187,13 @@ function speedup_burners(_event)
         local numModules = speedupValue * 10;
         numModules = math.floor(numModules);
 
-        local beacon = surface.create_entity({name = "burner-beacon", position = assembler.position})
+        local beacon = surface.find_entities_filtered({name = 'burner-beacon', area = assembler.bounding_box})[1]
+        if (beacon == nil) then
+            beacon = surface.create_entity({name = "burner-beacon", position = assembler.position})
+            table.insert(global["burners"]["burner-beacon"], beacon);
+        end
+
+        beacon.get_module_inventory().clear()
         local i = 0;
         repeat
             beacon.get_module_inventory().insert({name = "burner-speed-module"})
