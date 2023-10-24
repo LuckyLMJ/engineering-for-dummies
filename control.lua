@@ -1,4 +1,4 @@
-script.on_nth_tick(1, function(event) speedup_burners(event) end)
+script.on_nth_tick(30, function(event) speedup_burners(event) end)
 
 script.on_init(function()
     global["burner-speedups"] = {}
@@ -18,12 +18,31 @@ script.on_load(function()
     end
 end)
 
+
 function speedup_burners(_event)
     local surface = game.get_surface("nauvis")
-    local burnerDrills = surface.find_entities_filtered({name = "burner-mining-drill"});
+
+    for _, beacon in ipairs(surface.find_entities_filtered({name = "burner-beacon"})) do
+        beacon.get_module_inventory().clear()
+        beacon.destroy()
+    end
+
+    local burnerDrills = surface.find_entities_filtered({name = "burner-mining-drill"})
     for _, drill in ipairs(burnerDrills) do
         local isCrafting = drill.is_crafting and drill.active and drill.mining_target ~= nil and drill.burner.currently_burning and drill.mining_progress > 0
         local unitNumber = drill.unit_number
+
+        if (global["burner-speedups"]["burner-mining-drill"][unitNumber] == nil) then
+            global["burner-speedups"]["burner-mining-drill"][unitNumber] = 0
+        end
+
+        if (not isCrafting) then
+            global["burner-speedups"]["burner-mining-drill"][unitNumber] = global["burner-speedups"]["burner-mining-drill"][unitNumber] - 0.10
+            if (global["burner-speedups"]["burner-mining-drill"][unitNumber] < 0) then
+                global["burner-speedups"]["burner-mining-drill"][unitNumber] = 0
+            end
+            goto continue
+        end
 
         local fuelAccel = 1
         if (drill.get_fuel_inventory()[1] ~= nil) then
@@ -31,33 +50,27 @@ function speedup_burners(_event)
                 fuelAccel = drill.get_fuel_inventory()[1].prototype.fuel_acceleration_multiplier
             end
         end
-    
-        if (global["burner-speedups"]["burner-mining-drill"][unitNumber] == nil) then
-            global["burner-speedups"]["burner-mining-drill"][unitNumber] = 0
-        end
 
         local speedupValue = global["burner-speedups"]["burner-mining-drill"][unitNumber]
         
-        if (isCrafting) then
-            speedupValue = speedupValue + 0.0001666*fuelAccel --0.0001666 means it will take approx. 6000 ticks (100 seconds) to build up to top speed
-        else
-            speedupValue = speedupValue - 0.02
-        end
+        speedupValue = speedupValue + 0.01*fuelAccel*0.5 --0.01 means it'll take 100 seconds to get to full speed
 
-        if (speedupValue < 0) then
-            speedupValue = 0
-        end
         if (speedupValue > fuelAccel) then
             speedupValue = fuelAccel
         end
 
         global["burner-speedups"]["burner-mining-drill"][unitNumber] = speedupValue
-        if (speedupValue > 0 and isCrafting) then
-            local speed = drill.prototype.mining_speed
 
-            drill.mining_progress = drill.mining_progress + (((speedupValue * speed)) / 60)
-            drill.mining_progress = math.min(drill.mining_progress, drill.mining_target.prototype.mineable_properties.mining_time)
-        end
+        local numModules = speedupValue * 10;
+        numModules = math.floor(numModules);
+
+        local beacon = surface.create_entity({name = "burner-beacon", position = drill.position})
+        local i = 0;
+        repeat
+            beacon.get_module_inventory().insert({name = "burner-speed-module"})
+            i = i + 1
+        until i >= numModules
+        ::continue::
     end
 
     local burnerAssemblers = surface.find_entities_filtered({name = "burner-assembling-machine"});
@@ -65,39 +78,45 @@ function speedup_burners(_event)
         local isCrafting = assembler.is_crafting and assembler.active and assembler.burner.currently_burning and assembler.crafting_progress > 0
         local unitNumber = assembler.unit_number
 
+        if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] == nil) then
+            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = 0
+        end
+
+        if (not isCrafting) then
+            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = global["burner-speedups"]["burner-assembling-machine"][unitNumber] - 0.10
+            if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] < 0) then
+                global["burner-speedups"]["burner-assembling-machine"][unitNumber] = 0
+            end
+            goto continue
+        end
+
         local fuelAccel = 1
         if (assembler.get_fuel_inventory()[1] ~= nil) then
             if (assembler.get_fuel_inventory()[1].valid_for_read) then
                 fuelAccel = assembler.get_fuel_inventory()[1].prototype.fuel_acceleration_multiplier
             end
         end
-    
-        if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] == nil) then
-            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = 0
-        end
 
         local speedupValue = global["burner-speedups"]["burner-assembling-machine"][unitNumber]
         
-        if (isCrafting) then
-            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue + 0.0001666*fuelAccel
+        speedupValue = speedupValue + 0.01*fuelAccel*0.5 --0.01 means it'll take 100 seconds to get to full speed
+
+        if (speedupValue > fuelAccel) then
+            speedupValue = fuelAccel
         end
 
-        if (not isCrafting) then
-            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue - 0.02
-        end
+        global["burner-speedups"]["burner-assembling-machine"][unitNumber] = speedupValue
 
-        if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] < 0) then
-            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = 0
-        end
-        if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] > fuelAccel) then
-            global["burner-speedups"]["burner-assembling-machine"][unitNumber] = fuelAccel
-        end
+        local numModules = speedupValue * 10;
+        numModules = math.floor(numModules);
 
-        if (speedupValue > 0 and isCrafting) then
-            local speed = assembler.prototype.crafting_speed
-            local craftingTime = assembler.get_recipe().prototype.energy
-            assembler.crafting_progress = math.min(assembler.crafting_progress + (((speedupValue * speed / craftingTime)) / 60), 1)
-        end
+        local beacon = surface.create_entity({name = "burner-beacon", position = assembler.position})
+        local i = 0;
+        repeat
+            beacon.get_module_inventory().insert({name = "burner-speed-module"})
+            i = i + 1
+        until i >= numModules
+        ::continue::
     end
 end
 
@@ -136,12 +155,12 @@ remote.add_interface("engineering-for-dummies", {
                     {type="item",       name="nuclear-reactor",         quantity=1},
 
                     {type="group",      name="Scaling"},
-                    {type="item",       name="iron-plate",              quantity=1, next="x10"},
-                    {type="item",       name="copper-plate",            quantity=1, next="x10"},
-                    {type="item",       name="glass-plate",             quantity=1, next="x10"},
-                    {type="item",       name="steel-plate",             quantity=1, next="x10"},
-                    {type="item",       name="advanced-circuit",        quantity=1, next="x10"},
-                    {type="item",       name="processing-unit",         quantity=1, next="x10"},
+                    {type="item",       name="iron-plate",              quantity=100, next="x10"},
+                    {type="item",       name="copper-plate",            quantity=100, next="x10"},
+                    {type="item",       name="glass-plate",             quantity=100, next="x10"},
+                    {type="item",       name="steel-plate",             quantity=100, next="x10"},
+                    {type="item",       name="advanced-circuit",        quantity=100, next="x10"},
+                    {type="item",       name="processing-unit",         quantity=100, next="x10"},
 
                     {type="group",      name="Kills"},
                     {type="kill",       name="small-biter",             quantity=1},

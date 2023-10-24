@@ -93,7 +93,40 @@ data:extend(
                 fade_out_ticks = 20
             },
             fast_replaceable_group = "assembling-machine",
-        }
+            allowed_effects = {"consumption", "speed", "pollution"}
+        },
+        {
+            type = "beacon",
+            name = "burner-beacon",
+            icon = "__base__/graphics/icons/beacon.png",
+            icon_size = 64, icon_mipmaps = 4,
+            indestructible = true,
+            collision_mask = {},
+            collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
+            selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+            allowed_effects = {"consumption", "speed", "pollution"},
+            flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable"},
+            show_entity_info = false,
+        
+            radius_visualisation_picture = {
+                filename = "__base__/graphics/entity/beacon/beacon-radius-visualization.png",
+                priority = "extra-high-no-scale",
+                width = 10,
+                height = 10
+            },
+            energy_source = {
+                type = "void"
+            },
+            energy_usage = "1kW",
+            supply_area_distance = 0.1,
+            distribution_effectivity = 1,
+            module_specification = {
+              module_slots = 50,
+              module_info_icon_shift = {0, 0},
+              module_info_multi_row_initial_height_modifier = -0.3,
+              module_info_max_icons_per_row = 2
+            }
+        },
     }
 )
 

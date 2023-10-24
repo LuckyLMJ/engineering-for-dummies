@@ -98,6 +98,7 @@ data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99
 data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 0.35
 data.raw["recipe"]["electric-mining-drill"].ingredients = {{"iron-plate", 5}, {"burner-mining-drill", 1}, {"electronic-circuit", 4}, {"iron-gear-wheel", 4}}
 --data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
+data.raw["mining-drill"]["burner-mining-drill"].allowed_effects = {"consumption", "speed", "pollution"}
 
 for _, tech in pairs(data.raw.technology) do
     local doesBurnerExist = false;
@@ -148,3 +149,5 @@ data.raw["technology"]["fluid-handling"].effects = effects;
 local effects = data.raw["technology"]["oil-processing"].effects or {}
 table.insert(effects, {type = "unlock-recipe", recipe = "petrogas-from-hydrogen-coal"})
 data.raw["technology"]["oil-processing"].effects = effects;
+
+data.raw["recipe"]["repair-pack"].ingredients = {{"copper-cable", 6}, {"iron-gear-wheel", 3}}

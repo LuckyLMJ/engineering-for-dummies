@@ -106,6 +106,19 @@ data:extend(
             stack_size = 25,
             subgroup = "intermediate-product",
             order = "a[salt]",
-        }
+        },
+        {
+            type = "module",
+            name = "burner-speed-module",
+            localised_description = {"item-description.speed-module"},
+            icon = "__base__/graphics/icons/speed-module.png",
+            icon_size = 64, icon_mipmaps = 4,
+            order = "a[speed]-a[burner-speed-module]",
+            stack_size = 50,
+            category = "speed",
+            tier = 1,
+            effect = { speed = {bonus = 0.1}, consumption = {bonus = 0.1}},
+            flags = {"hidden"}
+          },
     }
 )
