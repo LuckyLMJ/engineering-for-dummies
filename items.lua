@@ -119,6 +119,25 @@ data:extend(
             tier = 1,
             effect = { speed = {bonus = 0.1}, consumption = {bonus = 0.1}},
             flags = {"hidden"}
-          },
+        },
+        {
+            type = "item",
+            name = "coal-coke",
+            icon_size = 64,
+            icon_mipmaps = 4,
+            icons = {
+                {
+                    icon = "__base__/graphics/icons/coal-2.png",
+                    tint = {0.8, 0.8, 0.9}
+                }
+            },
+            subgroup = "intermediate-product",
+            order = "a[coal-coke]",
+            stack_size = 50,
+            fuel_category = "chemical",
+            fuel_value = "8MJ",
+            fuel_acceleration_multiplier = 1.1,
+            fuel_emissions_multiplier = 0.7
+        },
     }
 )

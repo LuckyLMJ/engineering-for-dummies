@@ -32,6 +32,29 @@ data:extend(
         },
         {
             type = "recipe",
+            name = "charcoal",
+            category = "smelting",
+            enabled = true,
+            energy_required = 5,
+            ingredients = {
+                {"wood", 5}
+            },
+            results = {{"coal", 2}},
+            allow_decomposition = false,
+        },
+        {
+            type = "recipe",
+            name = "coal-coke",
+            category = "smelting",
+            enabled = false,
+            energy_required = 15,
+            ingredients = {
+                {"coal", 3}
+            },
+            results = {{"coal-coke", 2}}
+        },
+        {
+            type = "recipe",
             name = "glass-plate",
             category = "smelting",
             enabled = false,

@@ -1,6 +1,6 @@
 require("science")
 
-data.raw["recipe"]["steel-plate"].ingredients = {{"iron-plate", 4}, {"coal", 2}}
+data.raw["recipe"]["steel-plate"].ingredients = {{"iron-plate", 4}, {"coal-coke", 2}}
 data.raw["recipe"]["electronic-circuit"].ingredients = {{"glass-plate", 1}, {"copper-cable", 3}}
 data.raw["recipe"]["electronic-circuit"].enabled = false;
 data.raw["recipe"]["electronic-circuit"].category = "advanced-crafting";
@@ -70,7 +70,7 @@ data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"utility-sci
 --burner phase addition
 data.raw["technology"]["automation"].prerequisites = {"electricity"}
 data.raw["technology"]["optics"].prerequisites = {"electricity"}
-data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack"}
+data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack", "coal-coke"}
 data.raw["technology"]["logistics"].unit.ingredients = {{"burner-science-pack", 1}}
 data.raw["technology"]["logistics"].unit.count = 25;
 data.raw["technology"]["military"].unit.ingredients = {{"burner-science-pack", 1}}
@@ -96,6 +96,7 @@ data.raw["recipe"]["long-handed-inserter"].ingredients = {{"inserter", 1}, {"iro
 
 data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --expand burner drill area to 4x4
 data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 0.35
+data.raw["mining-drill"]["burner-mining-drill"].radius_visualisation_picture = {filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png", width = 10, height = 10}
 data.raw["recipe"]["electric-mining-drill"].ingredients = {{"iron-plate", 5}, {"burner-mining-drill", 1}, {"electronic-circuit", 4}, {"iron-gear-wheel", 4}}
 --data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
 data.raw["mining-drill"]["burner-mining-drill"].allowed_effects = {"consumption", "speed", "pollution"}

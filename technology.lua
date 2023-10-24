@@ -34,7 +34,7 @@ data:extend(
             {
                 count = 20,
                 ingredients = {{"burner-science-pack", 1}},
-                time = 5
+                time = 10
             },
             prerequisites = {},
             order = "d-a"
@@ -61,11 +61,38 @@ data:extend(
           	{
               	count = 50,
               	ingredients = {{"burner-science-pack", 1}},
-              	time = 5
+              	time = 15
           	},
           	prerequisites = {"glass-processing"},
           	order = "d-a"
         },
+		{
+			type = "technology",
+			name = "coal-coke",
+			icon_size = 64,
+			icon_mipmaps = 4,
+			icons = {
+			  	{
+					icon = "__base__/graphics/icons/coal-2.png",
+					tint = {0.8, 0.8, 0.9}
+				}
+			},
+			effects =
+			{
+				{
+					type = "unlock-recipe",
+					recipe = "coal-coke"
+				}
+			},
+			unit =
+			{
+				count = 25,
+				ingredients = {{"burner-science-pack", 1}},
+				time = 10
+			},
+			prerequisites = {},
+			order = "d-a"
+	  	},
         {
           	type = "technology",
           	name = "electricity",
@@ -116,7 +143,7 @@ data:extend(
          	{
               	count = 50,
               	ingredients = {{"burner-science-pack", 1}, {"automation-science-pack", 1}},
-              	time = 10
+              	time = 20
           	},
           	prerequisites = {"automation-science-pack"},
           	order = "d-a"
