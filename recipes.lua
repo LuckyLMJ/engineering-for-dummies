@@ -24,7 +24,7 @@ data:extend(
             name = "sand",
             category = "crafting",
             enabled = false,
-            energy_required = 3,
+            energy_required = 1.5,
             ingredients = {
                 {"stone", 1}
             },
