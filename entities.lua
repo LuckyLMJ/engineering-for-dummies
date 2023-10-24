@@ -105,15 +105,7 @@ data:extend(
             collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
             selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
             allowed_effects = {"consumption", "speed", "pollution"},
-            flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable"},
-            show_entity_info = false,
-        
-            radius_visualisation_picture = {
-                filename = "__base__/graphics/entity/beacon/beacon-radius-visualization.png",
-                priority = "extra-high-no-scale",
-                width = 10,
-                height = 10
-            },
+            flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable", "hide-alt-info"},
             energy_source = {
                 type = "void"
             },
