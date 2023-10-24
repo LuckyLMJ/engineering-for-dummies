@@ -17,8 +17,10 @@ data:extend(
             selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
             alert_icon_shift = util.by_pixel(-3, -12),
             animation = {
+                tint = {1, 0.9, 0.7},
                 layers = {
                     {
+                        tint = {1, 0.9, 0.7},
                         filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1.png",
                         priority="high",
                         width = 108,
@@ -28,6 +30,7 @@ data:extend(
                         shift = util.by_pixel(0, 2),
                         hr_version =
                         {
+                            tint = {1, 0.9, 0.7},
                             filename = "__base__/graphics/entity/assembling-machine-1/hr-assembling-machine-1.png",
                             priority="high",
                             width = 214,
@@ -39,6 +42,7 @@ data:extend(
                         }
                     },
                     {
+                        tint = {1, 0.9, 0.7},
                         filename = "__base__/graphics/entity/assembling-machine-1/assembling-machine-1-shadow.png",
                         priority="high",
                         width = 95,
@@ -49,6 +53,7 @@ data:extend(
                         draw_as_shadow = true,
                         shift = util.by_pixel(8.5, 5.5),
                         hr_version = {
+                            tint = {1, 0.9, 0.7},
                             filename = "__base__/graphics/entity/assembling-machine-1/hr-assembling-machine-1-shadow.png",
                             priority="high",
                             width = 190,
@@ -136,6 +141,14 @@ burnerLab.energy_source = {
                                 maximum_intensity = 0.95
                             }
                           }
+burnerLab.on_animation.layers[1].tint = {1, 0.9, 0.7};
+burnerLab.off_animation.layers[1].tint = {1, 0.9, 0.7};
+burnerLab.on_animation.layers[1].hr_version.tint = {1, 0.9, 0.7};
+burnerLab.off_animation.layers[1].hr_version.tint = {1, 0.9, 0.7};
+
+burnerLab.icons = {{icon = burnerLab.icon, tint = {1, 0.9, 0.7}}};
+burnerLab.icon = nil;
+
 burnerLab.researching_speed = 0.75;
 burnerLab.module_specification = {module_slots = 0};
 burnerLab.inputs = {"burner-science-pack", "automation-science-pack"};
