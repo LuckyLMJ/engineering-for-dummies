@@ -118,7 +118,6 @@ end
 data.raw["recipe"]["lab"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 5}, {"burner-lab", 1}, {"transport-belt", 4}}
 data.raw["recipe"]["assembling-machine-1"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 3}, {"burner-assembling-machine", 1}}
 
-
 -------------------------FLUIDS-------------------------
 data.raw["recipe"]["sulfuric-acid"].ingredients = {{"sulfur", 5}, {type = "fluid", name = "distilled-water", amount = 100}, {"iron-plate", 1}}
 data.raw["recipe"]["plastic-bar"].ingredients = {{type = "fluid", name = "petroleum-gas", amount = 25}, {type = "fluid", name = "hydrochloric-acid", amount = 1}}

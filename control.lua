@@ -155,6 +155,8 @@ function speedup_burners(_event)
         end
 
         local fuelAccel = drill.burner.currently_burning.fuel_acceleration_multiplier or 1
+        local fuelTopSpeed = drill.burner.currently_burning.fuel_top_speed_multiplier or 1
+        fuelTopSpeed = fuelTopSpeed - 1
 
         local speedupValue = global["burner-speedups"]["burner-mining-drill"][unitNumber]
         
@@ -168,6 +170,9 @@ function speedup_burners(_event)
 
         local numModules = speedupValue * 10;
         numModules = math.floor(numModules);
+
+        local numProds = numModules * 10 * fuelTopSpeed
+        numProds = math.floor(numProds);
         
         local beacon = surface.find_entities_filtered({name = 'burner-beacon', area = drill.bounding_box})[1]
         if (beacon == nil) then
@@ -183,11 +188,16 @@ function speedup_burners(_event)
         local i = 0;
         repeat
             beacon.get_module_inventory().insert({name = "burner-speed-module"})
-            if (i % 2 == 0) then
-                beacon.get_module_inventory().insert({name = "burner-productivity-module"})
-            end
             i = i + 1
         until i >= numModules
+
+        if numProds > 0 then
+            i = 0;
+            repeat
+                beacon.get_module_inventory().insert({name = "burner-productivity-module"})
+                i = i + 1
+            until i >= numProds
+        end
         ::continue::
     end
 
@@ -229,6 +239,8 @@ function speedup_burners(_event)
         end
 
         local fuelAccel = assembler.burner.currently_burning.fuel_acceleration_multiplier or 1
+        local fuelTopSpeed = assembler.burner.currently_burning.fuel_top_speed_multiplier or 1
+        fuelTopSpeed = fuelTopSpeed - 1
 
         local speedupValue = global["burner-speedups"]["burner-assembling-machine"][unitNumber]
         
@@ -243,6 +255,9 @@ function speedup_burners(_event)
         local numModules = speedupValue * 10;
         numModules = math.floor(numModules);
 
+        local numProds = numModules * 10 * fuelTopSpeed
+        numProds = math.floor(numProds);
+
         local beacon = surface.find_entities_filtered({name = 'burner-beacon', area = assembler.bounding_box})[1]
         if (beacon == nil) then
             beacon = surface.create_entity({name = "burner-beacon", position = assembler.position})
@@ -250,14 +265,20 @@ function speedup_burners(_event)
         end
 
         beacon.get_module_inventory().clear()
+
         local i = 0;
         repeat
             beacon.get_module_inventory().insert({name = "burner-speed-module"})
-            if (i % 2 == 0) then
-                beacon.get_module_inventory().insert({name = "burner-productivity-module"})
-            end
             i = i + 1
         until i >= numModules
+
+        if (numProds > 0) then
+            i = 0;
+            repeat
+                beacon.get_module_inventory().insert({name = "burner-productivity-module"})
+                i = i + 1
+            until i >= numProds
+        end
         ::continue::
     end
 end

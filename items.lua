@@ -198,6 +198,7 @@ data:extend(
             fuel_category = "chemical",
             fuel_value = "8MJ",
             fuel_acceleration_multiplier = 1.1,
+            fuel_top_speed_multiplier = 1.02,
             fuel_emissions_multiplier = 0.7
         },
     }
