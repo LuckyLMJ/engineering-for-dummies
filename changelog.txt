@@ -17,9 +17,7 @@ Date: 25. 10. 2023
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.2
 Date: 25. 10. 2023
-  Bugfixes:
-    - Fixed that burner drills were innaccessible from one side
   Changes:
     - Slightly buffed coal coke's top speed value
     - Fuel top speed now boosts productivity in burner machines
-    - Fuel acceleration no longer grants any productivity in burners
+    - Fuel acceleration no longer grants any productivity in burner machines
