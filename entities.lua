@@ -107,8 +107,8 @@ data:extend(
             icon_size = 64, icon_mipmaps = 4,
             indestructible = true,
             collision_mask = {},
-            collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
-            selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+            collision_box = {{-0.1, -0.1}, {0.1, 0.1}},
+            selection_box = {{-0.1, -0.1}, {0.1, 0.1}},
             allowed_effects = {"consumption", "speed", "pollution", "productivity"},
             flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable", "hide-alt-info"},
             energy_source = {

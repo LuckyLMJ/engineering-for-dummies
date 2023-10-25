@@ -9,3 +9,8 @@ Date: 24. 10. 2023
   Major Features:
     - Much improved burner stage
     - Oil processing
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 25. 10. 2023
+  Bugfixes:
+    - Fixed that burner drills were innaccessible from one side
