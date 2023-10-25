@@ -1,3 +1,50 @@
+function productivity_module_limitation()
+    return {
+        "sulfuric-acid",
+        "basic-oil-processing",
+        "advanced-oil-processing",
+        "coal-liquefaction",
+        "heavy-oil-cracking",
+        "light-oil-cracking",
+        "solid-fuel-from-light-oil",
+        "solid-fuel-from-heavy-oil",
+        "solid-fuel-from-petroleum-gas",
+        "lubricant",
+        "iron-plate",
+        "copper-plate",
+        "steel-plate",
+        "stone-brick",
+        "sulfur",
+        "plastic-bar",
+        "empty-barrel",
+        "uranium-processing",
+        "copper-cable",
+        "iron-stick",
+        "iron-gear-wheel",
+        "electronic-circuit",
+        "advanced-circuit",
+        "processing-unit",
+        "engine-unit",
+        "electric-engine-unit",
+        "uranium-fuel-cell",
+        "explosives",
+        "battery",
+        "flying-robot-frame",
+        "low-density-structure",
+        "rocket-fuel",
+        "nuclear-fuel",
+        "nuclear-fuel-reprocessing",
+        "rocket-control-unit",
+        "rocket-part",
+        "automation-science-pack",
+        "logistic-science-pack",
+        "chemical-science-pack",
+        "military-science-pack",
+        "production-science-pack",
+        "utility-science-pack",
+        "kovarex-enrichment-process"
+    }
+end
 data:extend(
     {
         {
@@ -117,7 +164,21 @@ data:extend(
             stack_size = 50,
             category = "speed",
             tier = 1,
-            effect = { speed = {bonus = 0.1}, consumption = {bonus = 0.1}},
+            effect = {speed = {bonus = 0.1}, consumption = {bonus = 0.1}},
+            flags = {"hidden"}
+        },
+        {
+            type = "module",
+            name = "burner-productivity-module",
+            localised_description = {"item-description.productivity-module"},
+            icon = "__base__/graphics/icons/productivity-module.png",
+            icon_size = 64, icon_mipmaps = 4,
+            order = "a[productivity]-a[burner-productivity-module]",
+            stack_size = 50,
+            category = "productivity",
+            tier = 1,
+            effect = {productivity = {bonus = 0.01}},
+            limitation = productivity_module_limitation(),
             flags = {"hidden"}
         },
         {

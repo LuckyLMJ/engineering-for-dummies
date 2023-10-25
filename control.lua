@@ -180,6 +180,9 @@ function speedup_burners(_event)
         local i = 0;
         repeat
             beacon.get_module_inventory().insert({name = "burner-speed-module"})
+            if (i % 2 == 0) then
+                beacon.get_module_inventory().insert({name = "burner-productivity-module"})
+            end
             i = i + 1
         until i >= numModules
         ::continue::
@@ -247,6 +250,9 @@ function speedup_burners(_event)
         local i = 0;
         repeat
             beacon.get_module_inventory().insert({name = "burner-speed-module"})
+            if (i % 2 == 0) then
+                beacon.get_module_inventory().insert({name = "burner-productivity-module"})
+            end
             i = i + 1
         until i >= numModules
         ::continue::

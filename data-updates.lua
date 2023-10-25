@@ -99,7 +99,7 @@ data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 0.35
 data.raw["mining-drill"]["burner-mining-drill"].radius_visualisation_picture = {filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png", width = 10, height = 10}
 data.raw["recipe"]["electric-mining-drill"].ingredients = {{"iron-plate", 5}, {"burner-mining-drill", 1}, {"electronic-circuit", 4}, {"iron-gear-wheel", 4}}
 --data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
-data.raw["mining-drill"]["burner-mining-drill"].allowed_effects = {"consumption", "speed", "pollution"}
+data.raw["mining-drill"]["burner-mining-drill"].allowed_effects = {"consumption", "speed", "pollution", "productivity"}
 
 for _, tech in pairs(data.raw.technology) do
     local doesBurnerExist = false;

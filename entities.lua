@@ -98,7 +98,7 @@ data:extend(
                 fade_out_ticks = 20
             },
             fast_replaceable_group = "assembling-machine",
-            allowed_effects = {"consumption", "speed", "pollution"}
+            allowed_effects = {"consumption", "speed", "pollution", "productivity"}
         },
         {
             type = "beacon",
@@ -109,7 +109,7 @@ data:extend(
             collision_mask = {},
             collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
             selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-            allowed_effects = {"consumption", "speed", "pollution"},
+            allowed_effects = {"consumption", "speed", "pollution", "productivity"},
             flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable", "hide-alt-info"},
             energy_source = {
                 type = "void"
