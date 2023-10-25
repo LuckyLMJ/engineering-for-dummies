@@ -222,8 +222,6 @@ function speedup_burners(_event)
             goto continue
         end
 
-        script.register_on_entity_destroyed(assembler);
-
         local isCrafting = assembler.is_crafting and assembler.active and assembler.burner.currently_burning and assembler.crafting_progress > 0
 
         if (global["burner-speedups"]["burner-assembling-machine"][unitNumber] == nil) then

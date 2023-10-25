@@ -188,8 +188,8 @@ data:extend(
             icon_mipmaps = 4,
             icons = {
                 {
-                    icon = "__base__/graphics/icons/coal-2.png",
-                    tint = {0.8, 0.8, 0.9}
+                    icon = "__base__/graphics/icons/stone-2.png",
+                    tint = {0.35, 0.3, 0.3}
                 }
             },
             subgroup = "intermediate-product",
