@@ -26,3 +26,5 @@ Version: 0.1.3
 Date: 25. 10. 2023
   Changes:
     - Improved coal coke graphics
+  Bugfixes:
+    - Allowed many recipes to use productivity modules that should've been able to, but couldn't
