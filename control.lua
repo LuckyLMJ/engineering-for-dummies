@@ -171,7 +171,10 @@ function speedup_burners(_event)
         
         local beacon = surface.find_entities_filtered({name = 'burner-beacon', area = drill.bounding_box})[1]
         if (beacon == nil) then
-            beacon = surface.create_entity({name = "burner-beacon", position = drill.position})
+            local centreX = (drill.bounding_box.left_top.x + drill.bounding_box.right_bottom.x) / 2
+            local centreY = (drill.bounding_box.left_top.y + drill.bounding_box.right_bottom.y) / 2
+            local centre = {centreX, centreY}
+            beacon = surface.create_entity({name = "burner-beacon", position = centre})
             table.insert(global["burners"]["burner-beacon"], beacon);
         end
 
