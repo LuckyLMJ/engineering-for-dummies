@@ -110,7 +110,7 @@ data:extend(
             collision_box = nil,
             selection_box = nil,
             allowed_effects = {"consumption", "speed", "pollution", "productivity"},
-            flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable", "hide-alt-info"},
+            flags = {"hidden", "not-deconstructable", "not-blueprintable", "not-flammable", "hide-alt-info", "placeable-off-grid"},
             energy_source = {
                 type = "void"
             },
