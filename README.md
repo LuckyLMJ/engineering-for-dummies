@@ -1,2 +1,2 @@
-# engineering-for-dummies
+# Engineering for Dummies
 A factorio overhaul mod
