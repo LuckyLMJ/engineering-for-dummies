@@ -33,3 +33,4 @@ Version: 0.1.4
 Date: 27. 10. 2023
   Bugfixes:
     - Fixed a bug where nuclear fuel gave much less productivity in burner machines than intended
+    - Fixed salt not having locale
