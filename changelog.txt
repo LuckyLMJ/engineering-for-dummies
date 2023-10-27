@@ -28,3 +28,8 @@ Date: 25. 10. 2023
     - Improved coal coke graphics
   Bugfixes:
     - Allowed many recipes to use productivity modules that should've been able to, but couldn't
+---------------------------------------------------------------------------------------------------
+Version: 0.1.4
+Date: 27. 10. 2023
+  Bugfixes:
+    - Fixed a bug where nuclear fuel gave much less productivity in burner machines than intended
