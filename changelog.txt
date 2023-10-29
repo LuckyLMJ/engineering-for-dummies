@@ -34,3 +34,8 @@ Date: 27. 10. 2023
   Bugfixes:
     - Fixed a bug where nuclear fuel gave much less productivity in burner machines than intended
     - Fixed salt not having locale
+---------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Date: 29. 10. 2023
+  Bugfixes:
+    - Fixed an incompatibility with Editor Extensions where placing the infinity loader would crash to the title screen
