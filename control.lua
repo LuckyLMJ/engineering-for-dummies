@@ -12,73 +12,79 @@ script.on_init(function()
 end)
 
 script.on_event(defines.events.on_built_entity, function(event)
-    if (created_entity ~= nil) then
-        if (event.created_entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], event.created_entity or event.entity or event.destination);
+    entity = event.entity or event.created_entity or event.destination
+    if (entity) then
+        if (entity.name == "burner-mining-drill") then
+            table.insert(global["burners"]["burner-mining-drill"], entity);
         end
 
-        if (event.created_entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], event.created_entity or event.entity or event.destination);
+        if (entity.name == "burner-assembling-machine") then
+            table.insert(global["burners"]["burner-assembling-machine"], entity);
         end
     end
 end)
 
 script.on_event(defines.events.on_entity_cloned, function(event)
-    if (created_entity ~= nil) then
-        if (event.created_entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], event.created_entity or event.entity or event.destination);
+    entity = event.entity or event.created_entity or event.destination
+    if (entity) then
+        if (entity.name == "burner-mining-drill") then
+            table.insert(global["burners"]["burner-mining-drill"], entity);
         end
 
-        if (event.created_entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], event.created_entity or event.entity or event.destination);
+        if (entity.name == "burner-assembling-machine") then
+            table.insert(global["burners"]["burner-assembling-machine"], entity);
         end
     end
 end)
 
 script.on_event(defines.events.on_robot_built_entity, function(event)
-    if (created_entity ~= nil) then
-        if (event.created_entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], event.created_entity or event.entity or event.destination);
+    entity = event.entity or event.created_entity or event.destination
+    if (entity) then
+        if (entity.name == "burner-mining-drill") then
+            table.insert(global["burners"]["burner-mining-drill"], entity);
         end
 
-        if (event.created_entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], event.created_entity or event.entity or event.destination);
+        if (entity.name == "burner-assembling-machine") then
+            table.insert(global["burners"]["burner-assembling-machine"], entity);
         end
     end
 end)
 
 script.on_event(defines.events.script_raised_built, function(event)
-    if (created_entity ~= nil) then
-        if (event.created_entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], event.created_entity or event.entity or event.destination);
+    entity = event.entity or event.created_entity or event.destination
+    if (entity) then
+        if (entity.name == "burner-mining-drill") then
+            table.insert(global["burners"]["burner-mining-drill"], entity);
         end
 
-        if (event.created_entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], event.created_entity or event.entity or event.destination);
+        if (entity.name == "burner-assembling-machine") then
+            table.insert(global["burners"]["burner-assembling-machine"], entity);
         end
     end
 end)
 
 script.on_event(defines.events.script_raised_revive, function(event)
-    if (created_entity ~= nil) then
-        if (event.created_entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], event.created_entity or event.entity or event.destination);
+    entity = event.entity or event.created_entity or event.destination
+    if (entity) then
+        if (entity.name == "burner-mining-drill") then
+            table.insert(global["burners"]["burner-mining-drill"], entity);
         end
 
-        if (event.created_entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], event.created_entity or event.entity or event.destination);
+        if (entity.name == "burner-assembling-machine") then
+            table.insert(global["burners"]["burner-assembling-machine"], entity);
         end
     end
 end)
 
 script.on_event(defines.events.on_trigger_created_entity, function(event)
-    if (created_entity ~= nil) then
-        if (event.created_entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], event.created_entity or event.entity or event.destination);
+    entity = event.entity or event.created_entity or event.destination
+    if (entity) then
+        if (entity.name == "burner-mining-drill") then
+            table.insert(global["burners"]["burner-mining-drill"], entity);
         end
 
-        if (event.created_entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], event.created_entity or event.entity or event.destination);
+        if (entity.name == "burner-assembling-machine") then
+            table.insert(global["burners"]["burner-assembling-machine"], entity);
         end
     end
 end)
