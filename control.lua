@@ -1,3 +1,5 @@
+require("util")
+
 script.on_nth_tick(1, function(event) speedup_burners(event) end)
 
 script.on_init(function()
@@ -11,82 +13,36 @@ script.on_init(function()
     global["burners"]["burner-beacon"] = {}
 end)
 
-script.on_event(defines.events.on_built_entity, function(event)
+function addBeaconToBurners(event)
     local entity = event.entity or event.created_entity or event.destination
-    if (entity) then
-        if (entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], entity);
-        end
-
-        if (entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], entity);
-        end
+    local burners_to_check = util.list_to_map({"burner-mining-drill", "burner-assembling-machine"})
+    if (burners_to_check[entity.name]) then
+        table.insert(global["burners"][entity.name], entity);
     end
+end
+
+script.on_event(defines.events.on_built_entity, function(event)
+    addBeaconToBurners(event)
 end)
 
 script.on_event(defines.events.on_entity_cloned, function(event)
-    local entity = event.entity or event.created_entity or event.destination
-    if (entity) then
-        if (entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], entity);
-        end
-
-        if (entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], entity);
-        end
-    end
+    addBeaconToBurners(event)
 end)
 
 script.on_event(defines.events.on_robot_built_entity, function(event)
-    local entity = event.entity or event.created_entity or event.destination
-    if (entity) then
-        if (entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], entity);
-        end
-
-        if (entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], entity);
-        end
-    end
+    addBeaconToBurners(event)
 end)
 
 script.on_event(defines.events.script_raised_built, function(event)
-    local entity = event.entity or event.created_entity or event.destination
-    if (entity) then
-        if (entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], entity);
-        end
-
-        if (entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], entity);
-        end
-    end
+    addBeaconToBurners(event)
 end)
 
 script.on_event(defines.events.script_raised_revive, function(event)
-    local entity = event.entity or event.created_entity or event.destination
-    if (entity) then
-        if (entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], entity);
-        end
-
-        if (entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], entity);
-        end
-    end
+    addBeaconToBurners(event)
 end)
 
 script.on_event(defines.events.on_trigger_created_entity, function(event)
-    local entity = event.entity or event.created_entity or event.destination
-    if (entity) then
-        if (entity.name == "burner-mining-drill") then
-            table.insert(global["burners"]["burner-mining-drill"], entity);
-        end
-
-        if (entity.name == "burner-assembling-machine") then
-            table.insert(global["burners"]["burner-assembling-machine"], entity);
-        end
-    end
+    addBeaconToBurners(event)
 end)
 
 
