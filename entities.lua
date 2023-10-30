@@ -149,8 +149,9 @@ burnerLab.off_animation.layers[1].hr_version.tint = {1, 0.9, 0.7};
 burnerLab.icons = {{icon = burnerLab.icon, tint = {1, 0.9, 0.7}}};
 burnerLab.icon = nil;
 
-burnerLab.researching_speed = 0.75;
+burnerLab.researching_speed = 0.4;
 burnerLab.module_specification = {module_slots = 0};
+burnerLab.allowed_effects = {"consumption", "speed", "pollution", "productivity"}
 burnerLab.inputs = {"burner-science-pack", "automation-science-pack"};
 burnerLab.minable = {mining_time = 0.2, result = "burner-lab"}
 data:extend({burnerLab});

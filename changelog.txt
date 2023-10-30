@@ -44,3 +44,8 @@ Version: 0.1.6
 Date: 29. 10. 2023
   Bugfixes:
     - Properly fixed that Editor Extensions bug from last update
+  Features:
+    - Burner labs and burner furnaces are now affected by the same heat system as burner assemblers and mining drills
+  Balancing:
+    - Burner furnaces require more fuel to run
+    - Slightly increased the burn time on coal coke, to make coal coke actually worth making

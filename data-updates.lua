@@ -1,4 +1,5 @@
 require("science")
+require("util")
 
 data.raw["recipe"]["steel-plate"].ingredients = {{"iron-plate", 4}, {"coal-coke", 2}}
 data.raw["recipe"]["electronic-circuit"].ingredients = {{"glass-plate", 1}, {"copper-cable", 3}}
@@ -94,12 +95,21 @@ data.raw["recipe"]["burner-inserter"].ingredients = {{"iron-stick", 1}, {"iron-g
 data.raw["recipe"]["inserter"].ingredients = {{"burner-inserter", 1}, {"electronic-circuit", 1}, {"iron-plate", 1}};
 data.raw["recipe"]["long-handed-inserter"].ingredients = {{"inserter", 1}, {"iron-stick", 1}, {"iron-plate", 1}};
 
-data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --expand burner drill area to 4x4
+data.raw["mining-drill"]["burner-mining-drill"].resource_searching_radius = 1.99 --buff burner drill
 data.raw["mining-drill"]["burner-mining-drill"].mining_speed = 0.35
 data.raw["mining-drill"]["burner-mining-drill"].radius_visualisation_picture = {filename = "__base__/graphics/entity/electric-mining-drill/electric-mining-drill-radius-visualization.png", width = 10, height = 10}
 data.raw["recipe"]["electric-mining-drill"].ingredients = {{"iron-plate", 5}, {"burner-mining-drill", 1}, {"electronic-circuit", 4}, {"iron-gear-wheel", 4}}
---data.raw["mining-drill"]["burner-mining-drill"].base_productivity = 0.1 --?
 data.raw["mining-drill"]["burner-mining-drill"].allowed_effects = {"consumption", "speed", "pollution", "productivity"}
+
+--make burner furnaces use heat mechanics
+
+data.raw["furnace"]["stone-furnace"].crafting_speed = 0.5
+data.raw["furnace"]["stone-furnace"].energy_usage = "60kW"
+data.raw["furnace"]["stone-furnace"].allowed_effects = {"consumption", "speed", "productivity"}
+
+data.raw["furnace"]["steel-furnace"].crafting_speed = 1
+data.raw["furnace"]["steel-furnace"].energy_usage = "90kW"
+data.raw["furnace"]["steel-furnace"].allowed_effects = {"consumption", "speed", "productivity"}
 
 for _, tech in pairs(data.raw.technology) do
     local doesBurnerExist = false;

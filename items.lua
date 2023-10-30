@@ -45,6 +45,7 @@ function productivity_module_limitation()
         "kovarex-enrichment-process"
     }
 end
+
 data:extend(
     {
         {
@@ -196,7 +197,7 @@ data:extend(
             order = "a[coal-coke]",
             stack_size = 50,
             fuel_category = "chemical",
-            fuel_value = "8MJ",
+            fuel_value = "10MJ",
             fuel_acceleration_multiplier = 1.1,
             fuel_top_speed_multiplier = 1.02,
             fuel_emissions_multiplier = 0.7
