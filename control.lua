@@ -12,7 +12,7 @@ script.on_init(function()
 end)
 
 script.on_event(defines.events.on_built_entity, function(event)
-    entity = event.entity or event.created_entity or event.destination
+    local entity = event.entity or event.created_entity or event.destination
     if (entity) then
         if (entity.name == "burner-mining-drill") then
             table.insert(global["burners"]["burner-mining-drill"], entity);
@@ -25,7 +25,7 @@ script.on_event(defines.events.on_built_entity, function(event)
 end)
 
 script.on_event(defines.events.on_entity_cloned, function(event)
-    entity = event.entity or event.created_entity or event.destination
+    local entity = event.entity or event.created_entity or event.destination
     if (entity) then
         if (entity.name == "burner-mining-drill") then
             table.insert(global["burners"]["burner-mining-drill"], entity);
@@ -38,7 +38,7 @@ script.on_event(defines.events.on_entity_cloned, function(event)
 end)
 
 script.on_event(defines.events.on_robot_built_entity, function(event)
-    entity = event.entity or event.created_entity or event.destination
+    local entity = event.entity or event.created_entity or event.destination
     if (entity) then
         if (entity.name == "burner-mining-drill") then
             table.insert(global["burners"]["burner-mining-drill"], entity);
@@ -51,7 +51,7 @@ script.on_event(defines.events.on_robot_built_entity, function(event)
 end)
 
 script.on_event(defines.events.script_raised_built, function(event)
-    entity = event.entity or event.created_entity or event.destination
+    local entity = event.entity or event.created_entity or event.destination
     if (entity) then
         if (entity.name == "burner-mining-drill") then
             table.insert(global["burners"]["burner-mining-drill"], entity);
@@ -64,7 +64,7 @@ script.on_event(defines.events.script_raised_built, function(event)
 end)
 
 script.on_event(defines.events.script_raised_revive, function(event)
-    entity = event.entity or event.created_entity or event.destination
+    local entity = event.entity or event.created_entity or event.destination
     if (entity) then
         if (entity.name == "burner-mining-drill") then
             table.insert(global["burners"]["burner-mining-drill"], entity);
@@ -77,7 +77,7 @@ script.on_event(defines.events.script_raised_revive, function(event)
 end)
 
 script.on_event(defines.events.on_trigger_created_entity, function(event)
-    entity = event.entity or event.created_entity or event.destination
+    local entity = event.entity or event.created_entity or event.destination
     if (entity) then
         if (entity.name == "burner-mining-drill") then
             table.insert(global["burners"]["burner-mining-drill"], entity);

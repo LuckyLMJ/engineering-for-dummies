@@ -39,3 +39,8 @@ Version: 0.1.5
 Date: 29. 10. 2023
   Bugfixes:
     - Fixed an incompatibility with Editor Extensions where placing the infinity loader would crash to the title screen
+---------------------------------------------------------------------------------------------------
+Version: 0.1.6
+Date: 29. 10. 2023
+  Bugfixes:
+    - Properly fixed that Editor Extensions bug from last update
