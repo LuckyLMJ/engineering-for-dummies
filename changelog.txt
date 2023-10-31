@@ -49,3 +49,11 @@ Date: 29. 10. 2023
   Balancing:
     - Burner furnaces require more fuel to run
     - Slightly increased the burn time on coal coke, to make coal coke actually worth making
+---------------------------------------------------------------------------------------------------
+Version: 0.1.7
+Date: 31. 10. 2023
+  Features:
+    - New improved graphics for various fluids
+  Bugfixes:
+    - Steam from chemical processes should now be hot, so you should be able to use it in steam engines as intended
+    - Recipes affected by productivity should now work on modded productivity modules that do not contain "productivity" in the internal name

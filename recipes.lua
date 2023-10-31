@@ -35,11 +35,11 @@ data:extend(
             name = "charcoal",
             category = "smelting",
             enabled = true,
-            energy_required = 5,
+            energy_required = 10,
             ingredients = {
                 {"wood", 5}
             },
-            results = {{"coal", 2}},
+            results = {{"coal", 1}},
             allow_decomposition = false,
         },
         {
@@ -162,7 +162,7 @@ data:extend(
                 {type = "fluid", name = "distilled-water", amount = 10},
                 {type = "item", name = "salt", amount = 1},
             },
-            results = {{type = "fluid", name = "chlorine", amount = 10}, {type = "fluid", name = "steam", amount = 5}},
+            results = {{type = "fluid", name = "chlorine", amount = 10}, {type = "fluid", name = "steam", amount = 5, temperature = 120}},
             main_product = "chlorine"
         },
         {

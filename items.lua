@@ -69,7 +69,7 @@ data:extend(
             icon_mipmaps = 4,
             icons = {
                 {
-                    icon = "__engineering-for-dummies__/graphics/icons/sand.png",
+                    icon = "__engineering-for-dummies__/graphics/icons/item/sand.png",
                     tint = {1, 1, 1}
                 }
             },
@@ -147,7 +147,7 @@ data:extend(
             icon_mipmaps = 4,
             icons = {
                 {
-                    icon = "__engineering-for-dummies__/graphics/icons/sand.png",
+                    icon = "__engineering-for-dummies__/graphics/icons/item/sand.png",
                     tint = {0.7, 1, 1}
                 }
             },
@@ -179,7 +179,7 @@ data:extend(
             category = "productivity",
             tier = 1,
             effect = {productivity = {bonus = 0.01}},
-            limitation = productivity_module_limitation(),
+            limitation = data.raw["module"]["productivity-module"].limitation,
             flags = {"hidden"}
         },
         {

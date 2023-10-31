@@ -111,6 +111,13 @@ data.raw["furnace"]["steel-furnace"].crafting_speed = 1
 data.raw["furnace"]["steel-furnace"].energy_usage = "90kW"
 data.raw["furnace"]["steel-furnace"].allowed_effects = {"consumption", "speed", "productivity"}
 
+--buff burner nuclear fuel
+--it's still worse than nuclear fuel cells. but it works I guess 
+data.raw["item"]["nuclear-fuel"].fuel_value = "12.1GJ"
+
+--nerf wood as fuel
+data.raw["item"]["wood"].fuel_acceleration_multiplier = 0.5
+
 for _, tech in pairs(data.raw.technology) do
     local doesBurnerExist = false;
     for _, ingredient in pairs(tech.unit.ingredients) do
