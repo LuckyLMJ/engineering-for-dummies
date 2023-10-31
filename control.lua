@@ -49,6 +49,9 @@ function speedup_burners(_event)
         if (global["burners"][entity]) == nil then
             global["burners"][entity] = surface.find_entities_filtered({name = entity})
         end
+        if (global["burner-speedups"][entity]) == nil then
+            global["burner-speedups"][entity] = surface.find_entities_filtered({name = entity})
+        end
     end
 
     if (global["burners"]["burner-beacon"] == nil) then
