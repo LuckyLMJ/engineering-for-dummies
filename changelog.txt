@@ -61,4 +61,4 @@ Date: 31. 10. 2023
 Version: 0.1.8
 Date: 31. 10. 2023
   Bugfixes:
-    - Fixed that saves from 0.1.6 were not loadable
+    - Fixed that old saves were not loadable
