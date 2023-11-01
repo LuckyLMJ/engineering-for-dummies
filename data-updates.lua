@@ -117,6 +117,7 @@ data.raw["item"]["nuclear-fuel"].fuel_value = "12.1GJ"
 
 --nerf wood as fuel
 data.raw["item"]["wood"].fuel_acceleration_multiplier = 0.5
+data.raw["item"]["wood"].fuel_value = "500kJ"
 
 for _, tech in pairs(data.raw.technology) do
     local doesBurnerExist = false;
