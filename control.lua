@@ -7,17 +7,16 @@ local burners_to_check = {"burner-mining-drill", "burner-assembling-machine", "b
 script.on_init(function()
     global["burner-speedups"] = {}
 
-    for _, burner in ipairs(burners_to_check) do
+    for _, burner in pairs(burners_to_check) do
         global["burner-speedups"][burner] = {}
     end
 
     global["burners"] = {}
-    for _, burner in ipairs(burners_to_check) do
+    for _, burner in pairs(burners_to_check) do
         global["burners"][burner] = {}
     end
     global["burners"]["burner-beacon"] = {}
 end)
-
 
 function addBeaconToBurners(event)
     local entity = event.entity or event.created_entity or event.destination
@@ -27,12 +26,22 @@ function addBeaconToBurners(event)
     end
 end
 
+script.on_configuration_changed(function()
+    local surface = game.get_surface("nauvis")
+    global["burner-speedups"] = {}
+    for _, entity in pairs(burners_to_check) do
+        global["burners"][entity] = surface.find_entities_filtered({name = entity})
+        global["burner-speedups"][entity] = {}
+    end
+end)
+
 for _, event in pairs({
                     defines.events.on_built_entity,
                     defines.events.on_entity_cloned,
                     defines.events.on_entity_cloned, 
                     defines.events.script_raised_built, 
                     defines.events.script_raised_revive, 
+                    defines.events.on_robot_built_entity,
                     defines.events.on_trigger_created_entity
                 }) do
     script.on_event(event, addBeaconToBurners)
@@ -45,12 +54,12 @@ function speedup_burners(_event)
     if (global["burners"] == nil) then
         global["burners"] = {}
     end
-    for _, entity in ipairs(burners_to_check) do
+    for _, entity in pairs(burners_to_check) do
         if (global["burners"][entity]) == nil then
             global["burners"][entity] = surface.find_entities_filtered({name = entity})
         end
         if (global["burner-speedups"][entity]) == nil then
-            global["burner-speedups"][entity] = surface.find_entities_filtered({name = entity})
+            global["burner-speedups"][entity] = {}
         end
     end
 
@@ -59,7 +68,7 @@ function speedup_burners(_event)
     end
 
     local burnerBeacons = global["burners"]["burner-beacon"]
-    for index, beacon in ipairs(burnerBeacons) do
+    for index, beacon in pairs(burnerBeacons) do
         if (beacon == nil) then
             table.remove(global["burners"]["burner-beacon"], index)
             goto continue
@@ -71,13 +80,13 @@ function speedup_burners(_event)
         end
 
         local unitNumber = beacon.unit_number
-        if (unitNumber % 60 ~= game.tick % 60) then
+        if (unitNumber % 240 ~= game.tick % 240) then
             goto continue
         end
 
         local burner = false;
         for _, entity in pairs(burners_to_check) do
-            if (surface.find_entities_filtered({name = entity, area = beacon.bounding_box})[1]) then
+            if (surface.find_entity(entity, beacon.position)) then
                 burner = true
                 goto continue
             end
@@ -93,8 +102,8 @@ function speedup_burners(_event)
         ::continue::
     end
 
-    for _, entity in ipairs(burners_to_check) do
-        for index, burner in ipairs(global["burners"][entity]) do
+    for _, entity in pairs(burners_to_check) do
+        for index, burner in pairs(global["burners"][entity]) do
             if (not burner) then
                 if (global["burners"][entity] ~= nil) then
                     table.remove(global["burners"][entity], index)
@@ -116,10 +125,10 @@ function speedup_burners(_event)
 
             local isCrafting = burner.active and burner.status == defines.entity_status.working and burner.burner.currently_burning
 
-            if (global["burner-speedups"][entity][unitNumber] == nil) then
+            if (not global["burner-speedups"][entity][unitNumber]) then
                 global["burner-speedups"][entity][unitNumber] = 0
+                goto continue
             end
-
             if (not isCrafting) then
                 global["burner-speedups"][entity][unitNumber] = global["burner-speedups"][entity][unitNumber] - 0.10
                 if (global["burner-speedups"][entity][unitNumber] < 0) then
@@ -133,7 +142,10 @@ function speedup_burners(_event)
             fuelTopSpeed = fuelTopSpeed - 1
 
             local speedupValue = global["burner-speedups"][entity][unitNumber]
-            
+            if (speedupValue == fuelAccel) then
+                goto continue
+            end
+
             if (isCrafting) then
                 speedupValue = speedupValue + 0.01*fuelAccel --0.01 means it'll take 100 seconds to get to full speed
             end
@@ -145,17 +157,14 @@ function speedup_burners(_event)
             global["burner-speedups"][entity][unitNumber] = speedupValue
 
             local numModules = speedupValue * 10;
-            numModules = math.floor(numModules);
+            numModules = math.ceil(numModules);
 
             local numProds = numModules * 10 * fuelTopSpeed
-            numProds = math.floor(numProds);
+            numProds = math.ceil(numProds);
             
-            local beacon = surface.find_entities_filtered({name = 'burner-beacon', area = burner.bounding_box})[1]
+            local beacon = surface.find_entity('burner-beacon', burner.position)
             if (beacon == nil) then
-                local centreX = (burner.bounding_box.left_top.x + burner.bounding_box.right_bottom.x) / 2
-                local centreY = (burner.bounding_box.left_top.y + burner.bounding_box.right_bottom.y) / 2
-                local centre = {centreX, centreY}
-                beacon = surface.create_entity({name = "burner-beacon", position = centre})
+                beacon = surface.create_entity({name = "burner-beacon", position = burner.position})
                 table.insert(global["burners"]["burner-beacon"], beacon);
             end
 
@@ -178,8 +187,6 @@ function speedup_burners(_event)
             ::continue::
         end
     end
-
-    print(serpent.block(global["burners"]))
 end
 
 remote.add_interface("engineering-for-dummies", {

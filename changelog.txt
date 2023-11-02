@@ -62,3 +62,9 @@ Version: 0.1.8
 Date: 31. 10. 2023
   Bugfixes:
     - Fixed that old saves were not loadable
+---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 02. 11. 2023
+  Bugfixes:
+    - Fixed that copy-and-pasting a blueprint containing burners with bots would lead to them not getting burner buffs
+    - Greatly improved performance of burner machines
