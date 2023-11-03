@@ -169,3 +169,22 @@ table.insert(effects, {type = "unlock-recipe", recipe = "petrogas-from-hydrogen-
 data.raw["technology"]["oil-processing"].effects = effects;
 
 data.raw["recipe"]["repair-pack"].ingredients = {{"copper-cable", 6}, {"iron-gear-wheel", 3}}
+
+--SIMULATIONS--
+
+local menu_simulations = {} 
+menu_simulations["burner-factory-1"] = {
+    save = "__engineering-for-dummies__/simulation_saves/burner-factory-1.zip",
+    checkboard = false,
+    length = 60 * 60 * 2, --in ticks, so this is 2 minutes
+    init = "game.camera_zoom = 1.75" --zoom out camera
+}
+
+menu_simulations["oil-train-factory-1"] = {
+    save = "__engineering-for-dummies__/simulation_saves/oil-train-factory-1.zip",
+    checkboard = false,
+    length = 60 * 60 * 2, --in ticks, so this is 2 minutes
+    init = "game.camera_zoom = 1" --zoom out camera
+}
+
+data.raw["utility-constants"]["default"].main_menu_simulations = menu_simulations;

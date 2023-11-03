@@ -68,3 +68,8 @@ Date: 02. 11. 2023
   Bugfixes:
     - Fixed that copy-and-pasting a blueprint containing burners with bots would lead to them not getting burner buffs
     - Greatly improved performance of burner machines
+---------------------------------------------------------------------------------------------------
+Version: 0.1.10
+Date: 03. 11. 2023
+  Features:
+    - Added some menu simulations

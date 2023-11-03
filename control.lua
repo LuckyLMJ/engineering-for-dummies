@@ -1,3 +1,11 @@
+do
+    -- don't load if sim scenario has already loaded this (in another lua state)
+    local modloader = remote.interfaces["modloader"]    
+    if modloader and modloader[script.mod_name] then
+      return
+    end
+end
+
 require("util")
 
 script.on_nth_tick(1, function(event) speedup_burners(event) end)
