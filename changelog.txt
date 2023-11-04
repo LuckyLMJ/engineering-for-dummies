@@ -70,7 +70,7 @@ Date: 02. 11. 2023
     - Greatly improved performance of burner machines
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.10
-Date: 03. 11. 2023
+Date: 2023-11-04
   Features:
     - Added some menu simulations
     - Added graphics for the burner assembling machine
