@@ -1,7 +1,11 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.13
+Version: 0.2.0
 Date: ????
+  Notes:
+    - This update will break old save files. Don't update unless you plan to start a new save.
   Changes:
+    - Burner inserters are now burner again, but are twice as fast
+    - Inserter fuel leech is now a dependency - it makes it possible to actually build stuff with burner inserters.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.12
 Date: 2023-11-04
