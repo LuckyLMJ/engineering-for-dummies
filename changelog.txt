@@ -74,3 +74,8 @@ Date: 2023-11-04
   Features:
     - Added some menu simulations
     - Added graphics for the burner assembling machine
+---------------------------------------------------------------------------------------------------
+Version: 0.1.11
+Date: 2023-11-04
+  Bugfixes:
+    - Burner assembling machines are way less flickery now
