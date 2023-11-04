@@ -1,48 +1,39 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.12
-Date: ????
-  Changes:
----------------------------------------------------------------------------------------------------
-Version: 0.0.1
-Date: 2023-10-17
-  Major Features:
-    - Initial release.
----------------------------------------------------------------------------------------------------
-Version: 0.1.0
-Date: 2023-10-24
-  Major Features:
-    - Much improved burner stage
-    - Oil processing
----------------------------------------------------------------------------------------------------
-Version: 0.1.1
-Date: 2023-10-25
+Date: 2023-11-04
   Bugfixes:
-    - Fixed that burner drills were innaccessible from one side
+    - Fixed a tiny error in the burner assembler texture
+    - Reordered the changelog
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.2
-Date: 2023-10-25
-  Changes:
-    - Slightly buffed coal coke's top speed value
-    - Fuel top speed now boosts productivity in burner machines
-    - Fuel acceleration no longer grants any productivity in burner machines
----------------------------------------------------------------------------------------------------
-Version: 0.1.3
-Date: 2023-10-25
-  Changes:
-    - Improved coal coke graphics
+Version: 0.1.11
+Date: 2023-11-04
   Bugfixes:
-    - Allowed many recipes to use productivity modules that should've been able to, but couldn't
+    - Burner assembling machines are way less flickery now
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.4
-Date: 2023-10-27
-  Bugfixes:
-    - Fixed a bug where nuclear fuel gave much less productivity in burner machines than intended
-    - Fixed salt not having locale
+Version: 0.1.10
+Date: 2023-11-04
+  Features:
+    - Added some menu simulations
+    - Added graphics for the burner assembling machine
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.5
-Date: 2023-10-29
+Version: 0.1.9
+Date: 2023-11-02
   Bugfixes:
-    - Fixed an incompatibility with Editor Extensions where placing the infinity loader would crash to the title screen
+    - Fixed that copy-and-pasting a blueprint containing burners with bots would lead to them not getting burner buffs
+    - Greatly improved performance of burner machines
+---------------------------------------------------------------------------------------------------
+Version: 0.1.8
+Date: 2023-10-31
+  Bugfixes:
+    - Fixed that old saves were not loadable
+---------------------------------------------------------------------------------------------------
+Version: 0.1.7
+Date: 2023-10-31
+  Features:
+    - New improved graphics for various fluids
+  Bugfixes:
+    - Steam from chemical processes should now be hot, so you should be able to use it in steam engines as intended
+    - Recipes affected by productivity should now work on modded productivity modules that do not contain "productivity" in the internal name
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.6
 Date: 2023-10-29
@@ -54,32 +45,43 @@ Date: 2023-10-29
     - Burner furnaces require more fuel to run
     - Slightly increased the burn time on coal coke, to make coal coke actually worth making
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.7
-Date: 2023-10-31
-  Features:
-    - New improved graphics for various fluids
+Version: 0.1.5
+Date: 2023-10-29
   Bugfixes:
-    - Steam from chemical processes should now be hot, so you should be able to use it in steam engines as intended
-    - Recipes affected by productivity should now work on modded productivity modules that do not contain "productivity" in the internal name
+    - Fixed an incompatibility with Editor Extensions where placing the infinity loader would crash to the title screen
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.8
-Date: 2023-10-31
+Version: 0.1.4
+Date: 2023-10-27
   Bugfixes:
-    - Fixed that old saves were not loadable
+    - Fixed a bug where nuclear fuel gave much less productivity in burner machines than intended
+    - Fixed salt not having locale
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.9
-Date: 2023-11-02
+Version: 0.1.3
+Date: 2023-10-25
+  Changes:
+    - Improved coal coke graphics
   Bugfixes:
-    - Fixed that copy-and-pasting a blueprint containing burners with bots would lead to them not getting burner buffs
-    - Greatly improved performance of burner machines
+    - Allowed many recipes to use productivity modules that should've been able to, but couldn't
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.10
-Date: 2023-11-04
-  Features:
-    - Added some menu simulations
-    - Added graphics for the burner assembling machine
+Version: 0.1.2
+Date: 2023-10-25
+  Changes:
+    - Slightly buffed coal coke's top speed value
+    - Fuel top speed now boosts productivity in burner machines
+    - Fuel acceleration no longer grants any productivity in burner machines
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.11
-Date: 2023-11-04
+Version: 0.1.1
+Date: 2023-10-25
   Bugfixes:
-    - Burner assembling machines are way less flickery now
+    - Fixed that burner drills were innaccessible from one side
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2023-10-24
+  Major Features:
+    - Much improved burner stage
+    - Oil processing
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2023-10-17
+  Major Features:
+    - Initial release.
