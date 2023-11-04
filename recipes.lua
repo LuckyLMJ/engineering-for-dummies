@@ -338,10 +338,10 @@ data:extend(
             enabled = false,
             energy_required = 7,
             ingredients = {
-                {"crushed-iron-ore", 10},
+                {"crushed-iron-ore", 8},
                 {"coal-coke", 1}
             },
-            results = {{"iron-plate", 4}},
+            results = {{"iron-plate", 5}},
         },
         {
             type = "recipe",
@@ -350,10 +350,10 @@ data:extend(
             enabled = false,
             energy_required = 7,
             ingredients = {
-                {"crushed-copper-ore", 10},
+                {"crushed-copper-ore", 8},
                 {"sand", 3}
             },
-            results = {{"copper-plate", 4}},
+            results = {{"copper-plate", 5}},
         },
     }
 )
@@ -384,3 +384,5 @@ allowProductivity("petrogas-from-hydrogen-coal")
 allowProductivity("crushed-iron-ore")
 allowProductivity("crushed-copper-ore")
 allowProductivity("waste-water-purification")
+allowProductivity("crushed-iron-ore-smelting")
+allowProductivity("crushed-copper-ore-smelting")

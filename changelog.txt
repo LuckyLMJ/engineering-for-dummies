@@ -1,8 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: ????
-  Notes:
-    - This update will break old save files. Don't update unless you plan to start a new save.
   Features:
     - New ore refining loop
   Changes:
