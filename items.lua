@@ -142,8 +142,8 @@ data:extend(
             icon_mipmaps = 4,
             icons = {
                 {
-                    icon = "__engineering-for-dummies__/graphics/icons/item/sand.png",
-                    tint = {0.7, 1, 1}
+                    icon = "__engineering-for-dummies__/graphics/icons/item/dust.png",
+                    tint = {0.5, 1, 0.8}
                 }
             },
             stack_size = 25,
@@ -209,6 +209,36 @@ data:extend(
             fuel_acceleration_multiplier = 1.1,
             fuel_top_speed_multiplier = 1.02,
             fuel_emissions_multiplier = 0.7
+        },
+        {
+            type = "item",
+            name = "crushed-iron-ore",
+            icon_size = 64,
+            icon_mipmaps = 4,
+            icons = {
+                {
+                    icon = "__engineering-for-dummies__/graphics/icons/item/dust.png",
+                    tint = {0.8, 0.8, 1}
+                }
+            },
+            subgroup = "intermediate-product",
+            order = "a[crushed-iron]",
+            stack_size = 10,
+        },
+        {
+            type = "item",
+            name = "crushed-copper-ore",
+            icon_size = 64,
+            icon_mipmaps = 4,
+            icons = {
+                {
+                    icon = "__engineering-for-dummies__/graphics/icons/item/dust.png",
+                    tint = {1, 0.5, 0.2}
+                }
+            },
+            subgroup = "intermediate-product",
+            order = "a[crushed-copper-ore]",
+            stack_size = 10,
         },
     }
 )

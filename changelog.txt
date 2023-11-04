@@ -3,6 +3,8 @@ Version: 0.2.0
 Date: ????
   Notes:
     - This update will break old save files. Don't update unless you plan to start a new save.
+  Features:
+    - New ore refining loop
   Changes:
     - Burner inserters are now burner again, but are twice as fast
     - Inserter fuel leech is now a dependency - it makes it possible to actually build stuff with burner inserters.

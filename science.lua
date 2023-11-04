@@ -58,4 +58,9 @@ data.raw["technology"]["space-science-pack"].unit.ingredients = {{"automation-sc
                                                                  {"chemical-science-pack", 1}, {"production-science-pack", 1},
                                                                  {"utility-science-pack", 1}, {"military-science-pack", 1}}
 
-table.insert(data.raw["lab"]["lab"].inputs, "burner-science-pack"); --so the regular lab can use the burner science packs.
+local labInputs = {"burner-science-pack"};
+for _, thing in pairs(data.raw["lab"]["lab"].inputs) do
+    table.insert(labInputs, thing);
+end
+
+data.raw["lab"]["lab"].inputs = labInputs;

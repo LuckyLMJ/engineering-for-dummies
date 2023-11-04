@@ -147,6 +147,49 @@ data:extend(
           	},
           	prerequisites = {"automation-science-pack"},
           	order = "d-a"
-        }
+        },
+		{
+			type = "technology",
+			name = "ore-purification",
+			icon_size = 64,
+			icon_mipmaps = 4,
+			icons = {
+                {
+                    icon = "__engineering-for-dummies__/graphics/icons/item/dust.png",
+                    tint = {1, 0.5, 0.2}
+                }
+            },
+			effects =
+			{
+				{
+					type = "unlock-recipe",
+					recipe = "crushed-iron-ore"
+				},
+				{
+					type = "unlock-recipe",
+					recipe = "crushed-copper-ore"
+				},
+				{
+					type = "unlock-recipe",
+					recipe = "crushed-iron-ore-smelting"
+				},
+				{
+					type = "unlock-recipe",
+					recipe = "crushed-copper-ore-smelting"
+				},
+				{
+					type = "unlock-recipe",
+					recipe = "waste-water-purification"
+				}
+			},
+			unit =
+		   {
+				count = 200,
+				ingredients = {{"burner-science-pack", 1}, {"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
+				time = 20
+			},
+			prerequisites = {"advanced-material-processing-2", "advanced-oil-processing"},
+			order = "e-a"
+	  }
     }
 )
