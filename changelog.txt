@@ -73,3 +73,4 @@ Version: 0.1.10
 Date: 03. 11. 2023
   Features:
     - Added some menu simulations
+    - Added graphics for the burner assembling machine

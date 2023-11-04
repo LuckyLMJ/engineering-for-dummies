@@ -95,12 +95,7 @@ data:extend(
         {
             type = "item",
             name = "burner-assembling-machine",
-            icons = {
-                {
-                icon = "__base__/graphics/icons/assembling-machine-1.png",
-                tint = {1, 0.9, 0.7}
-                }
-            },
+            icon = "__engineering-for-dummies__/graphics/icons/item/burner-assembling-machine.png",
             icon_size = 64, icon_mipmaps = 4,
             subgroup = "production-machine",
             order = "a[assembling-machine-0]",
