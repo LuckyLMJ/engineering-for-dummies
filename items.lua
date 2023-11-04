@@ -165,6 +165,19 @@ data:extend(
         },
         {
             type = "module",
+            name = "burner-slowdown-module",
+            localised_description = {"item-description.speed-module"},
+            icon = "__base__/graphics/icons/speed-module.png",
+            icon_size = 64, icon_mipmaps = 4,
+            order = "a[speed]-a[burner-speed-module]",
+            stack_size = 50,
+            category = "speed",
+            tier = 1,
+            effect = {speed = {bonus = -0.1}, consumption = {bonus = -0.1}},
+            flags = {"hidden"}
+        },
+        {
+            type = "module",
             name = "burner-productivity-module",
             localised_description = {"item-description.productivity-module"},
             icon = "__base__/graphics/icons/productivity-module.png",
@@ -196,6 +209,16 @@ data:extend(
             fuel_acceleration_multiplier = 1.1,
             fuel_top_speed_multiplier = 1.02,
             fuel_emissions_multiplier = 0.7
+        },
+        {
+            type = "item",
+            name = "heat-assembling-machine",
+            icon = "__engineering-for-dummies__/graphics/icons/item/burner-assembling-machine.png",
+            icon_size = 64, icon_mipmaps = 4,
+            subgroup = "production-machine",
+            order = "a[heat-assembling-machine]",
+            place_result = "heat-assembling-machine",
+            stack_size = 50
         },
     }
 )
