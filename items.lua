@@ -210,15 +210,5 @@ data:extend(
             fuel_top_speed_multiplier = 1.02,
             fuel_emissions_multiplier = 0.7
         },
-        {
-            type = "item",
-            name = "heat-assembling-machine",
-            icon = "__engineering-for-dummies__/graphics/icons/item/burner-assembling-machine.png",
-            icon_size = 64, icon_mipmaps = 4,
-            subgroup = "production-machine",
-            order = "a[heat-assembling-machine]",
-            place_result = "heat-assembling-machine",
-            stack_size = 50
-        },
     }
 )

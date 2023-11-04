@@ -11,7 +11,7 @@ require("util")
 script.on_nth_tick(1, function(event) speedup_burners(event) end)
 
 local burners_to_check = {"burner-mining-drill", "burner-assembling-machine", "burner-lab", "stone-furnace", "steel-furnace"}
-local heat_to_check = {"heat-assembling-machine"}
+local heat_to_check = {} --we don't have any heat based machines. but we could, later. 
 
 script.on_init(function()
     global["burner-speedups"] = {}
@@ -264,7 +264,7 @@ function speedup_burners(_event)
                 goto continue
             end
 
-            local fuelAccel = (burner.temperature or 0) / 500 - 1
+            local fuelAccel = (burner.temperature or 0) / 500
 
             local speedupValue = global["burner-speedups"][entity][unitNumber]
             if (speedupValue == fuelAccel) then
@@ -272,7 +272,7 @@ function speedup_burners(_event)
             end
 
             if (isCrafting) then
-                speedupValue = speedupValue + 0.1*fuelAccel --0.1 means it'll take 10 seconds to get to full speed
+                speedupValue = speedupValue + 0.02*fuelAccel --0.02 means it'll take 50 seconds to get to full speed
             end
 
             if (speedupValue > fuelAccel) then
@@ -283,6 +283,7 @@ function speedup_burners(_event)
 
             local numModules = speedupValue * 10;
             numModules = math.ceil(numModules);
+            numModules = numModules - 5;
 
             
             local beacon = surface.find_entity('burner-beacon', burner.position)
