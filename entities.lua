@@ -55,7 +55,7 @@ data:extend(
                     }
                 }
             },
-            crafting_categories = {"burner-testing", "crafting"},
+            crafting_categories = {"burner-testing", "basic-crafting", "crafting"},
             crafting_speed = 0.5,
             energy_source = {
                 type = "burner",

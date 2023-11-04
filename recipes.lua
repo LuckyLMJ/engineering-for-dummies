@@ -206,10 +206,10 @@ data:extend(
             name = "oxygen-from-air",
             category = "chemistry",
             enabled = false,
-            energy_required = 1,
+            energy_required = 0.5,
             ingredients = {
             },
-            results = {{type = "fluid", name = "oxygen", amount = 1}}
+            results = {{type = "fluid", name = "oxygen", amount = 2}}
         },
         {
             type = "recipe",
@@ -225,6 +225,26 @@ data:extend(
                 {
                     icon = "__base__/graphics/icons/fluid/steam.png",
                     tint = {0.4, 0.4, 1}
+                }
+            },
+            icon_size = 64,
+            icon_mipmaps = 4,
+            subgroup = "fluid"
+        },
+        {
+            type = "recipe",
+            name = "dump-water",
+            category = "crafting-with-fluid",
+            enabled = false,
+            energy_required = 0.2,
+            ingredients = {
+                {type = "fluid", name = "water", amount = 10}
+            },
+            results = {},
+            icons = {
+                {
+                    icon = "__base__/graphics/icons/fluid/steam.png",
+                    tint = {0.4, 0.5, 1}
                 }
             },
             icon_size = 64,
@@ -271,7 +291,70 @@ data:extend(
             icon_size = 64,
             icon_mipmaps = 4,
             subgroup = "fluid"
-        }
+        },
+        {
+            type = "recipe",
+            name = "waste-water-purification",
+            category = "chemistry",
+            enabled = false,
+            energy_required = 3,
+            ingredients = {
+                {type = "fluid", name = "waste-water", amount = 10},
+                {type = "fluid", name = "hydrochloric-acid", amount = 1}
+            },
+            results = {{"sand", 1}, {type = "fluid", name = "waste-water", amount = 5}, {type = "fluid", name = "water", amount = 2}},
+            main_product = "waste-water"
+        },
+        {
+            type = "recipe",
+            name = "crushed-iron-ore",
+            category = "crafting-with-fluid",
+            enabled = false,
+            energy_required = 1.5,
+            ingredients = {
+                {"iron-ore", 1},
+                {type = "fluid", name = "sulfuric-acid", amount = 1}
+            },
+            results = {{"crushed-iron-ore", 3}, {type = "item", name = "salt", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
+            main_product = "crushed-iron-ore"
+        },
+        {
+            type = "recipe",
+            name = "crushed-copper-ore",
+            category = "crafting-with-fluid",
+            enabled = false,
+            energy_required = 1.5,
+            ingredients = {
+                {"copper-ore", 1},
+                {type = "fluid", name = "hydrochloric-acid", amount = 1}
+            },
+            results = {{"crushed-copper-ore", 3}, {type = "item", name = "sulfur", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
+            main_product = "crushed-copper-ore"
+        },
+        {
+            type = "recipe",
+            name = "crushed-iron-ore-smelting",
+            category = "smelting",
+            enabled = false,
+            energy_required = 7,
+            ingredients = {
+                {"crushed-iron-ore", 8},
+                {"coal-coke", 1}
+            },
+            results = {{"iron-plate", 5}},
+        },
+        {
+            type = "recipe",
+            name = "crushed-copper-ore-smelting",
+            category = "smelting",
+            enabled = false,
+            energy_required = 7,
+            ingredients = {
+                {"crushed-copper-ore", 8},
+                {"sand", 3}
+            },
+            results = {{"copper-plate", 5}},
+        },
     }
 )
 
@@ -297,3 +380,9 @@ allowProductivity("water-electrolysis")
 allowProductivity("chlorine")
 allowProductivity("hydrochloric-acid")
 allowProductivity("petrogas-from-hydrogen-coal")
+
+allowProductivity("crushed-iron-ore")
+allowProductivity("crushed-copper-ore")
+allowProductivity("waste-water-purification")
+allowProductivity("crushed-iron-ore-smelting")
+allowProductivity("crushed-copper-ore-smelting")

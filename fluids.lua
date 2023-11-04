@@ -15,6 +15,24 @@ data:extend(
         },
         {
             type = "fluid",
+            name = "waste-water",
+            default_temperature = 15,
+            max_temperature = 100,
+            heat_capacity = "0.2KJ",
+            base_color = {r=0.6, g=0.5, b=0.3},
+            flow_color = {r=0.8, g=0.7, b=0.3},
+            icons = {
+                {
+                    icon = "__base__/graphics/icons/fluid/water.png",
+                    tint = {0.8, 0.4, 0.2}
+                }
+            },
+            icon_size = 64,
+            icon_mipmaps = 4,
+            order = "a[fluid]-a[waste-water]"
+        },
+        {
+            type = "fluid",
             name = "chlorine",
             default_temperature = 15,
             max_temperature = 999,
