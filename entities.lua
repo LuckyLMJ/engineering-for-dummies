@@ -133,7 +133,7 @@ data:extend(
               layers =
               {
                 {
-                  filename = "__engineering-for-dummies__/graphics/entity/lab.png",
+                  filename = "__engineering-for-dummies__/graphics/entity/burner-lab.png",
                   width = 98,
                   height = 87,
                   frame_count = 33,
@@ -181,7 +181,7 @@ data:extend(
               layers =
               {
                 {
-                  filename = "__engineering-for-dummies__/graphics/entity/lab.png",
+                  filename = "__engineering-for-dummies__/graphics/entity/burner-lab.png",
                   width = 98,
                   height = 87,
                   frame_count = 1,
