@@ -175,6 +175,12 @@ data.raw["technology"]["oil-processing"].effects = effects;
 
 data.raw["recipe"]["repair-pack"].ingredients = {{"copper-cable", 6}, {"iron-gear-wheel", 3}}
 
+--Text plates compatibility
+if data.raw.item["textplate-small-glass"] then
+    data.raw.recipe["textplate-small-glass"].ingredients = {{type = "item", name = "glass-plate", amount = 1}}
+    data.raw.recipe["textplate-large-glass"].ingredients = {{type = "item", name = "glass-plate", amount = 4}}
+end
+
 --SIMULATIONS--
 
 local menu_simulations = {} 

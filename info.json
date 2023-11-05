@@ -5,5 +5,5 @@
   "author" : "LuckyLMJ",
   "description" : "A simple overhaul mod",
   "factorio_version" : "1.1",
-  "dependencies" : ["base >= 1.1", "disable-expensive-mode", "furnace-recipe-selection", "InserterFuelLeech", "?Milestones"]
+  "dependencies" : ["base >= 1.1", "disable-expensive-mode", "furnace-recipe-selection", "InserterFuelLeech", "early-circuit-network", "?Milestones", "?textplates"]
 }
