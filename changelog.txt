@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.2
-Date: ????
+Date: 2023-11-05
   Balancing:
     - Made automation science a bit more expensive, because it was too much cheaper than logistic science
   Bugfixes:
