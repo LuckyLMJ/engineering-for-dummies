@@ -1,7 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: ????
-  Changes:
+  Bugfixes:
+    - Fixed long inserters trying to put items in invisible beacons
+    - Slightly buffed burner inserters
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2023-11-04
