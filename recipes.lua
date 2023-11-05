@@ -62,7 +62,8 @@ data:extend(
             ingredients = {
                 {"sand", 5}
             },
-            results = {{"glass-plate", 1}}
+            results = {{"glass-plate", 1}},
+            allow_decomposition = false
         },
         {
             type = "recipe",
@@ -342,6 +343,7 @@ data:extend(
                 {"coal-coke", 1}
             },
             results = {{"iron-plate", 5}},
+            allow_decomposition = false
         },
         {
             type = "recipe",
@@ -354,6 +356,7 @@ data:extend(
                 {"sand", 3}
             },
             results = {{"copper-plate", 5}},
+            allow_decomposition = false
         },
     }
 )
