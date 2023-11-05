@@ -185,6 +185,13 @@ menu_simulations["burner-factory-1"] = {
     init = "game.camera_zoom = 1.75" --zoom out camera
 }
 
+menu_simulations["oil-factory-1"] = {
+    save = "__engineering-for-dummies__/simulation_saves/oil-factory-1.zip",
+    checkboard = false,
+    length = 60 * 60 * 2, --in ticks, so this is 2 minutes
+    init = "game.camera_zoom = 1.25" --zoom out camera
+}
+
 menu_simulations["oil-train-factory-1"] = {
     save = "__engineering-for-dummies__/simulation_saves/oil-train-factory-1.zip",
     checkboard = false,
