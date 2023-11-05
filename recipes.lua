@@ -75,7 +75,8 @@ data:extend(
                 {"wood", 1},
                 {"copper-cable", 3}
             },
-            results = {{"electronic-circuit", 1}}
+            results = {{"electronic-circuit", 1}},
+            allow_decomposition = false
         },
         {
             type = "recipe",
@@ -88,7 +89,8 @@ data:extend(
                 {type = "fluid", name = "sulfuric-acid", amount = 1},
                 {"copper-cable", 5}
             },
-            results = {{"electronic-circuit", 2}}
+            results = {{"electronic-circuit", 2}},
+            allow_decomposition = false
         },
         {
             type = "recipe",
