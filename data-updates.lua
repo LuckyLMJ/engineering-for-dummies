@@ -90,7 +90,7 @@ data.raw["recipe"]["lab"].enabled = false;
 
 --data.raw["inserter"]["burner-inserter"].energy_source = {type = "void"};
 --data.raw["inserter"]["burner-inserter"].rotation_speed = 0.0075;
-data.raw["inserter"]["burner-inserter"].rotation_speed = 0.012;
+data.raw["inserter"]["burner-inserter"].rotation_speed = 0.0135;
 data.raw["inserter"]["burner-inserter"].extension_speed = 0.03;
 data.raw["inserter"]["burner-inserter"].energy_per_movement = "5KJ";
 data.raw["inserter"]["burner-inserter"].energy_per_rotation = "5KJ";
