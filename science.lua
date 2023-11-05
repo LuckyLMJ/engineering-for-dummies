@@ -1,5 +1,5 @@
 --red sci
-data.raw["recipe"]["automation-science-pack"].ingredients = {{"iron-gear-wheel", 1}, {"glass-plate", 1}, {"copper-cable", 3}};
+data.raw["recipe"]["automation-science-pack"].ingredients = {{"iron-gear-wheel", 2}, {"glass-plate", 3}, {"copper-cable", 6}};
 data.raw["recipe"]["automation-science-pack"].enabled = false;
 
 --green sci

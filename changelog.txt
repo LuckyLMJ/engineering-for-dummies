@@ -1,7 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.2
 Date: ????
-  Changes:
+  Balancing:
+    - Made automation science a bit more expensive, because it was too much cheaper than logistic science
+  Bugfixes:
+    - Fixed a few localization issues
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.1
 Date: 2023-11-05
