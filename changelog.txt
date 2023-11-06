@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.3
-Date: ?????
+Date: 2023-11-06
   Changes:
     - Text plates compatibility patch
     - New menu simulation
