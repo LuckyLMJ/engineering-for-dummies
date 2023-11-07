@@ -22,6 +22,17 @@ script.on_init(function()
     global["burners-to-check"] = {"burner-mining-drill", "burner-assembling-machine", "burner-lab", "stone-furnace", "steel-furnace"}
     global["heaters-to-check"] = {} --we don't have any heat based machines. but we could, later. 
 
+    --check for janky quality mod
+    if (game.active_mods["janky-quality"]) then
+        local btc = table.deepcopy(global["burners-to-check"])
+        --add qualities for each burner machine.
+        for _, burner in pairs(btc) do
+            for i=2, 5 do
+                remote.call("speedup-burners", "addBurner", burner .. "-quality-" .. i);
+            end
+        end
+    end
+
     global["burner-speedups"] = {}
 
     for _, burner in pairs(global["burners-to-check"]) do
@@ -58,6 +69,17 @@ end
 script.on_configuration_changed(function()
     global["burners-to-check"] = {"burner-mining-drill", "burner-assembling-machine", "burner-lab", "stone-furnace", "steel-furnace"}
     global["heaters-to-check"] = {} --we don't have any heat based machines. but we could, later. 
+
+    --check for janky quality mod
+    if (game.active_mods["janky-quality"]) then
+        local btc = table.deepcopy(global["burners-to-check"])
+        --add qualities for each burner machine.
+        for _, burner in pairs(btc) do
+            for i=2, 5 do
+                remote.call("speedup-burners", "addBurner", burner .. "-quality-" .. i);
+            end
+        end
+    end
 
     local surface = game.get_surface("nauvis")
     global["burner-speedups"] = {}
