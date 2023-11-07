@@ -8,27 +8,35 @@ end
 
 require("util")
 
+remote.add_interface("speedup-burners",
+   {addBurner = function(burner)
+        table.insert(global["burners-to-check"], burner)
+    end,
+    addHeater = function(heater) 
+        table.insert(global["heaters-to-check"], heater)
+    end})
+
 script.on_nth_tick(1, function(event) speedup_burners(event) end)
 
-local burners_to_check = {"burner-mining-drill", "burner-assembling-machine", "burner-lab", "stone-furnace", "steel-furnace"}
-local heat_to_check = {} --we don't have any heat based machines. but we could, later. 
-
 script.on_init(function()
+    global["burners-to-check"] = {"burner-mining-drill", "burner-assembling-machine", "burner-lab", "stone-furnace", "steel-furnace"}
+    global["heaters-to-check"] = {} --we don't have any heat based machines. but we could, later. 
+
     global["burner-speedups"] = {}
 
-    for _, burner in pairs(burners_to_check) do
+    for _, burner in pairs(global["burners-to-check"]) do
         global["burner-speedups"][burner] = {}
     end
 
-    for _, burner in pairs(heat_to_check) do
+    for _, burner in pairs(global["heaters-to-check"]) do
         global["burner-speedups"][burner] = {}
     end
 
     global["burners"] = {}
-    for _, burner in pairs(burners_to_check) do
+    for _, burner in pairs(global["burners-to-check"]) do
         global["burners"][burner] = {}
     end
-    for _, burner in pairs(heat_to_check) do
+    for _, burner in pairs(global["heaters-to-check"]) do
         global["burners"][burner] = {}
     end
     global["burners"]["burner-beacon"] = {}
@@ -36,25 +44,28 @@ end)
 
 function addBeaconToBurners(event)
     local entity = event.entity or event.created_entity or event.destination
-    local checked = util.list_to_map(burners_to_check)
+    local checked = util.list_to_map(global["burners-to-check"])
     if (checked[entity.name]) then
         table.insert(global["burners"][entity.name], entity);
     end
 
-    local checked = util.list_to_map(heat_to_check)
+    local checked = util.list_to_map(global["heaters-to-check"])
     if (checked[entity.name]) then
         table.insert(global["burners"][entity.name], entity);
     end
 end
 
 script.on_configuration_changed(function()
+    global["burners-to-check"] = {"burner-mining-drill", "burner-assembling-machine", "burner-lab", "stone-furnace", "steel-furnace"}
+    global["heaters-to-check"] = {} --we don't have any heat based machines. but we could, later. 
+
     local surface = game.get_surface("nauvis")
     global["burner-speedups"] = {}
-    for _, entity in pairs(burners_to_check) do
+    for _, entity in pairs(global["burners-to-check"]) do
         global["burners"][entity] = surface.find_entities_filtered({name = entity})
         global["burner-speedups"][entity] = {}
     end
-    for _, entity in pairs(heat_to_check) do
+    for _, entity in pairs(global["heaters-to-check"]) do
         global["burners"][entity] = surface.find_entities_filtered({name = entity})
         global["burner-speedups"][entity] = {}
     end
@@ -79,7 +90,7 @@ function speedup_burners(_event)
     if (global["burners"] == nil) then
         global["burners"] = {}
     end
-    for _, entity in pairs(burners_to_check) do
+    for _, entity in pairs(global["burners-to-check"]) do
         if (global["burners"][entity]) == nil then
             global["burners"][entity] = surface.find_entities_filtered({name = entity})
         end
@@ -88,7 +99,7 @@ function speedup_burners(_event)
         end
     end
 
-    for _, entity in pairs(heat_to_check) do
+    for _, entity in pairs(global["heaters-to-check"]) do
         if (global["burners"][entity]) == nil then
             global["burners"][entity] = surface.find_entities_filtered({name = entity})
         end
@@ -119,13 +130,13 @@ function speedup_burners(_event)
         end
 
         local burner = false;
-        for _, entity in pairs(burners_to_check) do
+        for _, entity in pairs(global["burners-to-check"]) do
             if (surface.find_entity(entity, beacon.position)) then
                 burner = true
                 goto continue
             end
         end
-        for _, entity in pairs(heat_to_check) do
+        for _, entity in pairs(global["heaters-to-check"]) do
             if (surface.find_entity(entity, beacon.position)) then
                 burner = true
                 goto continue
@@ -142,7 +153,7 @@ function speedup_burners(_event)
         ::continue::
     end
 
-    for _, entity in pairs(burners_to_check) do
+    for _, entity in pairs(global["burners-to-check"]) do
         for index, burner in pairs(global["burners"][entity]) do
             if (not burner) then
                 if (global["burners"][entity] ~= nil) then
@@ -228,7 +239,7 @@ function speedup_burners(_event)
         end
     end
 
-    for _, entity in pairs(heat_to_check) do
+    for _, entity in pairs(global["heaters-to-check"]) do
         for index, burner in pairs(global["burners"][entity]) do
             if (not burner) then
                 if (global["burners"][entity] ~= nil) then
