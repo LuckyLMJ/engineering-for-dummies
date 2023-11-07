@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.2.4
-Date: ????
+Date: 2023-11-07
   Changes:
     - Added a remote call for other mods to make their burner or heat-powered entities sped up by the mod. Simply add remote.call("speedup-burners", "addBurner", "entity-name") (or the same but with "addHeater" instead of burner) in on_init and on_configuration_changed.
 ---------------------------------------------------------------------------------------------------
