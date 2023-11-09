@@ -2,6 +2,7 @@
 Version: 0.3.1
 Date: ????
   Changes:
+    - Fixed a small bug where electronics research unlocked the circuit recipe twice.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2023-11-09
