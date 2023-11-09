@@ -69,33 +69,6 @@ data.raw["recipe"]["fusion-reactor-equipment"].ingredients = {{"processing-unit"
 data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"utility-science-pack", "uranium-processing", "power-armor", "military-science-pack"}
 
 
---burner phase addition
-data.raw["technology"]["automation"].prerequisites = {"electricity"}
-data.raw["technology"]["optics"].prerequisites = {"electricity"}
-data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack", "coal-coke"}
-data.raw["technology"]["logistics"].unit.ingredients = {{"burner-science-pack", 1}}
-data.raw["technology"]["logistics"].unit.count = 25;
-data.raw["technology"]["military"].unit.ingredients = {{"burner-science-pack", 1}}
-data.raw["technology"]["military"].unit.count = 25;
-data.raw["technology"]["automation"].unit.count = 50;
-data.raw["recipe"]["splitter"].ingredients = {{"copper-plate", 5}, {"iron-gear-wheel", 3}, {"transport-belt", 2}}
-data.raw["recipe"]["burner-mining-drill"].ingredients = {{"copper-plate", 2}, {"iron-plate", 5}, {"iron-gear-wheel", 5}, {"stone-furnace", 1}}
-
-data.raw["recipe"]["inserter"].enabled = false;
-data.raw["recipe"]["electric-mining-drill"].enabled = false;
-data.raw["recipe"]["small-electric-pole"].enabled = false;
-data.raw["recipe"]["steam-engine"].enabled = false;
-data.raw["recipe"]["offshore-pump"].enabled = false;
-data.raw["recipe"]["boiler"].enabled = false;
-data.raw["recipe"]["lab"].enabled = false;
-
---data.raw["inserter"]["burner-inserter"].energy_source = {type = "void"};
---data.raw["inserter"]["burner-inserter"].rotation_speed = 0.0075;
-data.raw["inserter"]["burner-inserter"].rotation_speed = 0.0135;
-data.raw["inserter"]["burner-inserter"].extension_speed = 0.03;
-data.raw["inserter"]["burner-inserter"].energy_per_movement = "5KJ";
-data.raw["inserter"]["burner-inserter"].energy_per_rotation = "5KJ";
-
 data.raw["recipe"]["burner-inserter"].ingredients = {{"iron-stick", 1}, {"iron-gear-wheel", 1}, {"iron-plate", 1}};
 data.raw["recipe"]["inserter"].ingredients = {{"burner-inserter", 1}, {"electronic-circuit", 1}, {"iron-plate", 1}};
 data.raw["recipe"]["long-handed-inserter"].ingredients = {{"inserter", 1}, {"iron-stick", 1}, {"iron-plate", 1}};
@@ -106,37 +79,9 @@ data.raw["mining-drill"]["burner-mining-drill"].radius_visualisation_picture = {
 data.raw["recipe"]["electric-mining-drill"].ingredients = {{"iron-plate", 5}, {"burner-mining-drill", 1}, {"electronic-circuit", 4}, {"iron-gear-wheel", 4}}
 data.raw["mining-drill"]["burner-mining-drill"].allowed_effects = {"consumption", "speed", "pollution", "productivity"}
 
---make burner furnaces use heat mechanics
-
-data.raw["furnace"]["stone-furnace"].crafting_speed = 0.5
-data.raw["furnace"]["stone-furnace"].energy_usage = "60kW"
-data.raw["furnace"]["stone-furnace"].allowed_effects = {"consumption", "speed", "productivity"}
-
-data.raw["furnace"]["steel-furnace"].crafting_speed = 1
-data.raw["furnace"]["steel-furnace"].energy_usage = "90kW"
-data.raw["furnace"]["steel-furnace"].allowed_effects = {"consumption", "speed", "productivity"}
-
 --buff burner nuclear fuel
 --it's still worse than nuclear fuel cells. but it works I guess 
 data.raw["item"]["nuclear-fuel"].fuel_value = "12.1GJ"
-
---nerf wood as fuel
-data.raw["item"]["wood"].fuel_acceleration_multiplier = 0.5
-data.raw["item"]["wood"].fuel_value = "500kJ"
-
-for _, tech in pairs(data.raw.technology) do
-    local doesBurnerExist = false;
-    for _, ingredient in pairs(tech.unit.ingredients) do
-        if (ingredient.name == "burner-science-pack" or ingredient[1] == "burner-science-pack") then
-            doesBurnerExist = true;
-            break;
-        end
-    end
-
-    if (not doesBurnerExist) then
-        table.insert(tech.unit.ingredients, {"burner-science-pack", 1})
-    end
-end
 
 data.raw["recipe"]["lab"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 5}, {"burner-lab", 1}, {"transport-belt", 4}}
 data.raw["recipe"]["assembling-machine-1"].ingredients = {{"iron-gear-wheel", 5}, {"electronic-circuit", 3}, {"burner-assembling-machine", 1}}

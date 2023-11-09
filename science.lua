@@ -57,10 +57,3 @@ data.raw["technology"]["rocket-silo"].unit.ingredients = {{"automation-science-p
 data.raw["technology"]["space-science-pack"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, 
                                                                  {"chemical-science-pack", 1}, {"production-science-pack", 1},
                                                                  {"utility-science-pack", 1}, {"military-science-pack", 1}}
-
-local labInputs = {"burner-science-pack"};
-for _, thing in pairs(data.raw["lab"]["lab"].inputs) do
-    table.insert(labInputs, thing);
-end
-
-data.raw["lab"]["lab"].inputs = labInputs;

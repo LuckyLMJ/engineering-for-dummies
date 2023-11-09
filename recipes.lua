@@ -67,19 +67,6 @@ data:extend(
         },
         {
             type = "recipe",
-            name = "alt-electronic-circuit-wood",
-            category = "crafting",
-            enabled = false,
-            energy_required = 0.5,
-            ingredients = {
-                {"wood", 1},
-                {"copper-cable", 3}
-            },
-            results = {{"electronic-circuit", 1}},
-            allow_decomposition = false
-        },
-        {
-            type = "recipe",
             name = "alt-electronic-circuit-plastic",
             category = "crafting-with-fluid",
             enabled = false,
@@ -91,46 +78,6 @@ data:extend(
             },
             results = {{"electronic-circuit", 2}},
             allow_decomposition = false
-        },
-        {
-            type = "recipe",
-            name = "burner-science-pack",
-            category = "burner-testing",
-            enabled = true,
-            energy_required = 4,
-            ingredients = {
-                {"stone-brick", 1},
-                {"iron-plate", 1}
-            },
-            results = {{"burner-science-pack", 1}}
-        },
-        {
-            type = "recipe",
-            name = "burner-lab",
-            category = "crafting",
-            enabled = true,
-            energy_required = 3,
-            ingredients = {
-                {"iron-plate", 20},
-                {"stone-brick", 4},
-                {"iron-gear-wheel", 3},
-                {"stone-furnace", 1}
-            },
-            results = {{"burner-lab", 1}}
-        },
-        {
-            type = "recipe",
-            name = "burner-assembling-machine",
-            category = "crafting",
-            enabled = true,
-            energy_required = 3,
-            ingredients = {
-                {"iron-plate", 10},
-                {"copper-cable", 4},
-                {"stone-brick", 4},
-                {"stone-furnace", 1}
-            },
-            results = {{"burner-assembling-machine", 1}}
         },
         {
             type = "recipe",
@@ -363,29 +310,17 @@ data:extend(
     }
 )
 
-data:extend(
-    {
-        {
-            type = "recipe-category",
-            name = "burner-testing"
-        }
-    }
-)
-
 allowProductivity("space-science-pack")
 allowProductivity("sand")
 allowProductivity("glass-plate")
-allowProductivity("burner-science-pack")
 allowProductivity("charcoal")
 allowProductivity("coal-coke")
 allowProductivity("alt-electronic-circuit-plastic")
-allowProductivity("alt-electronic-circuit-wood")
 allowProductivity("water-condensation")
 allowProductivity("water-electrolysis")
 allowProductivity("chlorine")
 allowProductivity("hydrochloric-acid")
 allowProductivity("petrogas-from-hydrogen-coal")
-
 allowProductivity("crushed-iron-ore")
 allowProductivity("crushed-copper-ore")
 allowProductivity("waste-water-purification")
