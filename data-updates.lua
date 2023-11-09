@@ -8,13 +8,6 @@ data.raw["recipe"]["electronic-circuit"].allow_decomposition = false;
 data.raw["recipe"]["electronic-circuit"].category = "advanced-crafting";
 data.raw["technology"]["electronics"].prerequisites = {"glass-processing", "electricity"}
 
-
---we can't just add to the effects table if it doesn't exist (as in vanilla, the electronics research has no unlocks)
---so we have to make an empty table if it doesn't exist
-local effects = data.raw["technology"]["electronics"].effects or {}
-table.insert(effects, {type = "unlock-recipe", recipe = "electronic-circuit"})
-data.raw["technology"]["electronics"].effects = effects;
-
 data.raw["technology"]["advanced-electronics"].prerequisites = {"plastics", "sulfur-processing"}
 effects = data.raw["technology"]["advanced-electronics"].effects or {}
 table.insert(effects, {type = "unlock-recipe", recipe = "alt-electronic-circuit-plastic"})
