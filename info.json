@@ -1,9 +1,9 @@
 {
-  "name" : "burner-phase-for-dummies",
-  "version": "0.1.0",
-  "title" : "Burner Phase for Dummies",
+  "name" : "engineering-for-dummies",
+  "version": "0.2.6",
+  "title" : "Engineering for Dummies",
   "author" : "LuckyLMJ",
-  "description" : "Extends and improves the burner stage",
+  "description" : "A simple overhaul mod",
   "factorio_version" : "1.1",
-  "dependencies" : ["base >= 1.1", "disable-expensive-mode", "?InserterFuelLeech"]
+  "dependencies" : ["base >= 1.1", "disable-expensive-mode", "furnace-recipe-selection", "InserterFuelLeech", "early-circuit-network", "?Milestones"]
 }

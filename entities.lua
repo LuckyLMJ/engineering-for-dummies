@@ -5,7 +5,7 @@ data:extend(
         {
             type = "assembling-machine",
             name = "burner-assembling-machine",
-            icon = "__burner-phase-for-dummies__/graphics/icons/item/burner-assembling-machine.png",
+            icon = "__engineering-for-dummies__/graphics/icons/item/burner-assembling-machine.png",
             icon_size = 64, icon_mipmaps = 4,
             flags = {"placeable-neutral", "placeable-player", "player-creation"},
             minable = {mining_time = 0.2, result = "burner-assembling-machine"},
@@ -20,7 +20,7 @@ data:extend(
                 tint = {1, 0.9, 0.7},
                 layers = {
                     {
-                        filename = "__burner-phase-for-dummies__/graphics/entity/burner-assembling-machine.png",
+                        filename = "__engineering-for-dummies__/graphics/entity/burner-assembling-machine.png",
                         priority="high",
                         width = 108,
                         height = 114,
@@ -133,7 +133,7 @@ data:extend(
               layers =
               {
                 {
-                  filename = "__burner-phase-for-dummies__/graphics/entity/burner-lab.png",
+                  filename = "__engineering-for-dummies__/graphics/entity/burner-lab.png",
                   width = 98,
                   height = 87,
                   frame_count = 33,
@@ -181,7 +181,7 @@ data:extend(
               layers =
               {
                 {
-                  filename = "__burner-phase-for-dummies__/graphics/entity/burner-lab.png",
+                  filename = "__engineering-for-dummies__/graphics/entity/burner-lab.png",
                   width = 98,
                   height = 87,
                   frame_count = 1,

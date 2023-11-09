@@ -1,2 +1,2 @@
-# Burner Phase for Dummies
-Reworks factorio's burner phase
+# Engineering for Dummies
+A factorio overhaul mod
