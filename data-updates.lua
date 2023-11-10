@@ -2,6 +2,7 @@ require("science")
 require("util")
 
 data.raw["recipe"]["steel-plate"].ingredients = {{"iron-plate", 4}, {"coal-coke", 2}}
+data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack", "coal-coke"}
 data.raw["recipe"]["electronic-circuit"].ingredients = {{"glass-plate", 1}, {"copper-cable", 3}}
 data.raw["recipe"]["electronic-circuit"].enabled = false;
 data.raw["recipe"]["electronic-circuit"].allow_decomposition = false;
