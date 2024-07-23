@@ -20,7 +20,7 @@ data.raw["recipe"]["advanced-circuit"].category = "crafting-with-fluid"
 data.raw["recipe"]["solar-panel"].ingredients = {{"copper-plate", 15}, {"steel-plate", 5}, {"glass-plate", 15}}
 
 --glass
-data.raw["recipe"]["electric-furnace"].ingredients = {{"advanced-circuit", 5}, {"steel-plate", 10}, {"stone-brick", 10}, {"glass-plate", 5}}
+data.raw["recipe"]["electric-furnace"].ingredients = {{"advanced-circuit", 5}, {"steel-plate", 5}, {"steel-furnace", 1}, {"glass-plate", 5}}
 data.raw["recipe"]["chemical-plant"].ingredients = {{"electronic-circuit", 5}, {"steel-plate", 5}, {"glass-plate", 5}, {"pipe", 5}}
 data.raw["recipe"]["storage-tank"].ingredients = {{"steel-plate", 5}, {"glass-plate", 10}, {"pipe", 5}}
 data.raw["technology"]["fluid-handling"].prerequisites = {"engine"}
@@ -113,6 +113,8 @@ table.insert(effects, {type = "unlock-recipe", recipe = "petrogas-from-hydrogen-
 data.raw["technology"]["oil-processing"].effects = effects;
 
 data.raw["recipe"]["repair-pack"].ingredients = {{"copper-cable", 6}, {"iron-gear-wheel", 3}}
+
+data.raw["recipe"]["steel-furnace"].ingredients = {{"steel-plate", 6}, {"stone-brick", 8}, {"stone-furnace", 1}};
 
 --Text plates compatibility
 if data.raw.item["textplate-small-glass"] then

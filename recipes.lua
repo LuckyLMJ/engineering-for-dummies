@@ -24,7 +24,7 @@ data:extend(
             name = "sand",
             category = "crafting",
             enabled = false,
-            energy_required = 1.5,
+            energy_required = 1,
             ingredients = {
                 {"stone", 1}
             },
@@ -247,13 +247,18 @@ data:extend(
             name = "waste-water-purification",
             category = "chemistry",
             enabled = false,
-            energy_required = 3,
+            energy_required = 30,
             ingredients = {
-                {type = "fluid", name = "waste-water", amount = 10},
-                {type = "fluid", name = "hydrochloric-acid", amount = 1}
+                {type = "fluid", name = "waste-water", amount = 100},
+                {type = "fluid", name = "hydrochloric-acid", amount = 10}
             },
-            results = {{"sand", 1}, {type = "fluid", name = "waste-water", amount = 5}, {type = "fluid", name = "water", amount = 2}},
-            main_product = "waste-water"
+            results = {{"sand", 10}, {"crushed-iron-ore", 1}, {"crushed-copper-ore", 1}, {type = "fluid", name = "chlorine", amount = 9}, {type = "fluid", name = "water", amount = 95}},
+            icons = {
+                {
+                    icon = "__base__/graphics/icons/fluid/water.png",
+                    tint = {0.8, 0.4, 0.2}
+                }
+            },
         },
         {
             type = "recipe",
