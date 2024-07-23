@@ -259,6 +259,9 @@ data:extend(
                     tint = {0.8, 0.4, 0.2}
                 }
             },
+            icon_size = 64,
+            icon_mipmaps = 4,
+            subgroup = "fluid"
         },
         {
             type = "recipe",
