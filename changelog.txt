@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.2
-Date: ????
+Date: 2024-07-23
   Bugfixes:
     - Steel plate technology now correctly requires the coal coke and automation science pack technologies.
   Balancing:
