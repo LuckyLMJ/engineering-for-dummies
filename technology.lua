@@ -20,14 +20,6 @@ data:extend(
                 {
                     type = "unlock-recipe",
                     recipe = "glass-plate"
-                },
-                {
-                    type = "unlock-recipe",
-                    recipe = "pipe"
-                },
-                {
-                    type = "unlock-recipe",
-                    recipe = "pipe-to-ground"
                 }
             },
             unit =

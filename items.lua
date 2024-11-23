@@ -1,51 +1,3 @@
-function productivity_module_limitation()
-    return {
-        "sulfuric-acid",
-        "basic-oil-processing",
-        "advanced-oil-processing",
-        "coal-liquefaction",
-        "heavy-oil-cracking",
-        "light-oil-cracking",
-        "solid-fuel-from-light-oil",
-        "solid-fuel-from-heavy-oil",
-        "solid-fuel-from-petroleum-gas",
-        "lubricant",
-        "iron-plate",
-        "copper-plate",
-        "steel-plate",
-        "stone-brick",
-        "sulfur",
-        "plastic-bar",
-        "empty-barrel",
-        "uranium-processing",
-        "copper-cable",
-        "iron-stick",
-        "iron-gear-wheel",
-        "electronic-circuit",
-        "advanced-circuit",
-        "processing-unit",
-        "engine-unit",
-        "electric-engine-unit",
-        "uranium-fuel-cell",
-        "explosives",
-        "battery",
-        "flying-robot-frame",
-        "low-density-structure",
-        "rocket-fuel",
-        "nuclear-fuel",
-        "nuclear-fuel-reprocessing",
-        "rocket-control-unit",
-        "rocket-part",
-        "automation-science-pack",
-        "logistic-science-pack",
-        "chemical-science-pack",
-        "military-science-pack",
-        "production-science-pack",
-        "utility-science-pack",
-        "kovarex-enrichment-process"
-    }
-end
-
 data:extend(
     {
         {
@@ -55,7 +7,7 @@ data:extend(
             icon_mipmaps = 4,
             icons = {
                 {
-                    icon = "__base__/graphics/icons/rocket-control-unit.png",
+                    icon = "__base__/graphics/icons/plastic-bar.png",
                     tint = {1, 0.8, 1}
                 }
             },

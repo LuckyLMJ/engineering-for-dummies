@@ -42,14 +42,6 @@ remote.add_interface("engineering-for-dummies", {
                     {type="item",       name="accumulator",             quantity=1},
                     {type="item",       name="nuclear-reactor",         quantity=1},
 
-                    {type="group",      name="Scaling"},
-                    {type="item",       name="iron-plate",              quantity=100, next="x10"},
-                    {type="item",       name="copper-plate",            quantity=100, next="x10"},
-                    {type="item",       name="glass-plate",             quantity=100, next="x10"},
-                    {type="item",       name="steel-plate",             quantity=100, next="x10"},
-                    {type="item",       name="advanced-circuit",        quantity=100, next="x10"},
-                    {type="item",       name="processing-unit",         quantity=100, next="x10"},
-
                     {type="group",      name="Kills"},
                     {type="kill",       name="small-biter",             quantity=1},
                     {type="kill",       name="medium-biter",            quantity=1},

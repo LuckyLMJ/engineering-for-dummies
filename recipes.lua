@@ -1,5 +1,4 @@
 require("functions")
-
 data:extend(
     {
         {
@@ -9,14 +8,14 @@ data:extend(
             enabled = false,
             energy_required = 100,
             ingredients = {
-                {"space-probe-data", 1},
-                {"iron-gear-wheel", 1},
-                {"express-transport-belt", 1},
-                {"advanced-circuit", 1},
-                {"uranium-235", 1},
-                {"flying-robot-frame", 1}
+                {type = "item", name = "space-probe-data", amount = 1},
+                {type = "item", name = "iron-gear-wheel", amount = 1},
+                {type = "item", name = "express-transport-belt", amount = 1},
+                {type = "item", name = "advanced-circuit", amount = 1},
+                {type = "item", name = "uranium-235", amount = 1},
+                {type = "item", name = "flying-robot-frame", amount = 1}
             },
-            results = {{"space-science-pack", 10}, {"copper-cable", 7}, {"uranium-238", 1}},
+            results = {{type = "item", name = "space-science-pack", amount = 10}, {type = "item", name = "copper-cable", amount = 7}},
             main_product = "space-science-pack"
         },
         {
@@ -26,9 +25,9 @@ data:extend(
             enabled = false,
             energy_required = 1,
             ingredients = {
-                {"stone", 1}
+                {type = "item", name = "stone", amount = 1}
             },
-            results = {{"sand", 3}}
+            results = {{type = "item", name = "sand", amount = 3}}
         },
         {
             type = "recipe",
@@ -37,9 +36,9 @@ data:extend(
             enabled = true,
             energy_required = 10,
             ingredients = {
-                {"wood", 5}
+                {type = "item", name = "wood", amount = 5}
             },
-            results = {{"coal", 1}},
+            results = {{type = "item", name = "coal", amount = 1}},
             allow_decomposition = false,
         },
         {
@@ -49,9 +48,9 @@ data:extend(
             enabled = false,
             energy_required = 15,
             ingredients = {
-                {"coal", 3}
+                {type = "item", name = "coal", amount = 3}
             },
-            results = {{"coal-coke", 2}}
+            results = {{type = "item", name = "coal-coke", amount = 2}}
         },
         {
             type = "recipe",
@@ -60,9 +59,9 @@ data:extend(
             enabled = false,
             energy_required = 5,
             ingredients = {
-                {"sand", 5}
+                {type = "item", name = "sand", amount = 5}
             },
-            results = {{"glass-plate", 1}},
+            results = {{type = "item", name = "glass-plate", amount = 1}},
             allow_decomposition = false
         },
         {
@@ -72,11 +71,11 @@ data:extend(
             enabled = false,
             energy_required = 0.5,
             ingredients = {
-                {"plastic-bar", 1},
+                {type = "item", name = "plastic-bar", amount = 1},
                 {type = "fluid", name = "sulfuric-acid", amount = 1},
-                {"copper-cable", 5}
+                {type = "item", name = "copper-cable", amount = 5}
             },
-            results = {{"electronic-circuit", 2}},
+            results = {{type = "item", name = "electronic-circuit", amount = 2}},
             allow_decomposition = false
         },
         {
@@ -252,7 +251,7 @@ data:extend(
                 {type = "fluid", name = "waste-water", amount = 100},
                 {type = "fluid", name = "hydrochloric-acid", amount = 10}
             },
-            results = {{"sand", 10}, {"crushed-iron-ore", 1}, {"crushed-copper-ore", 1}, {type = "fluid", name = "chlorine", amount = 9}, {type = "fluid", name = "water", amount = 95}},
+            results = {{type = "item", name = "sand", amount = 10}, {type = "item", name = "crushed-iron-ore", amount = 1}, {type = "item", name = "crushed-copper-ore", amount = 1}, {type = "fluid", name = "chlorine", amount = 9}, {type = "fluid", name = "water", amount = 95}},
             icons = {
                 {
                     icon = "__base__/graphics/icons/fluid/water.png",
@@ -270,10 +269,10 @@ data:extend(
             enabled = false,
             energy_required = 1.5,
             ingredients = {
-                {"iron-ore", 1},
+                {type = "item", name = "iron-ore", amount = 1},
                 {type = "fluid", name = "sulfuric-acid", amount = 1}
             },
-            results = {{"crushed-iron-ore", 3}, {type = "item", name = "salt", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
+            results = {{type = "item", name = "crushed-iron-ore", amount = 3}, {type = "item", name = "salt", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
             main_product = "crushed-iron-ore"
         },
         {
@@ -283,10 +282,10 @@ data:extend(
             enabled = false,
             energy_required = 1.5,
             ingredients = {
-                {"copper-ore", 1},
+                {type = "item", name = "copper-ore", amount = 1},
                 {type = "fluid", name = "hydrochloric-acid", amount = 1}
             },
-            results = {{"crushed-copper-ore", 3}, {type = "item", name = "sulfur", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
+            results = {{type = "item", name = "crushed-copper-ore", amount = 3}, {type = "item", name = "sulfur", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
             main_product = "crushed-copper-ore"
         },
         {
@@ -296,10 +295,10 @@ data:extend(
             enabled = false,
             energy_required = 7,
             ingredients = {
-                {"crushed-iron-ore", 8},
-                {"coal-coke", 1}
+                {type = "item", name = "crushed-iron-ore", amount = 8},
+                {type = "item", name = "coal-coke", amount = 1}
             },
-            results = {{"iron-plate", 5}},
+            results = {{type = "item", name = "iron-plate", amount = 5}},
             allow_decomposition = false
         },
         {
@@ -309,10 +308,10 @@ data:extend(
             enabled = false,
             energy_required = 7,
             ingredients = {
-                {"crushed-copper-ore", 8},
-                {"sand", 3}
+                {type = "item", name = "crushed-copper-ore", amount = 8},
+                {type = "item", name = "sand", amount = 3}
             },
-            results = {{"copper-plate", 5}},
+            results = {{type = "item", name = "copper-plate", amount = 5}},
             allow_decomposition = false
         },
     }

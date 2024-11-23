@@ -1,2 +1,2 @@
 # Engineering for Dummies
-A factorio overhaul mod
+A small factorio overhaul mod

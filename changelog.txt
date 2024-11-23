@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.3.2
+Version: 0.4.0
 Date: ????
+  Major Features:
+    - Updated to Factorio 2.0.
   Bugfixes:
     - Steel plate technology now correctly requires the coal coke and automation science pack technologies.
   Balancing:
@@ -8,6 +10,8 @@ Date: ????
     - Increased the crafting speeed of sand by 50%
     - Furnaces now require the previous tier of furnace to craft
     - Waste water purification is now more useful to do (rather than just throwing out the water)
+  Known Issues:
+    - Simulation saves don't work.
 ---------------------------------------------------------------------------------------------------
 Version: 0.3.1
 Date: 2023-11-09
