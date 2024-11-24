@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.1
-Date: ????
+Date: 2024-11-24
   Bugfixes:
     - Burner inserters are now craftable without technology as intended
     - Satellites now give the correct launch products
