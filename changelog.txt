@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.2
-Date: ????
+Date: 2024-11-24
   Bugfixes:
     - Moved wood->circuit recipe to this mod from burner stage for dummies mod
     - Made productivity modules work in recipes as intended.
