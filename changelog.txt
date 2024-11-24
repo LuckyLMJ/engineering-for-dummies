@@ -1,7 +1,13 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.4.3
+Version: 0.5.0
 Date: ????
   Changes:
+    - Renamed glass plate to glass pane
+    - Fast inserters are now locked behind logistic (green) science and require steel to craft
+    - Changed engine unit recipe
+  Bugfixes:
+    - Fixed that glass did not have a description
+    - Fixed several recipes not being in the correct category and not having locale
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.2
 Date: 2024-11-24

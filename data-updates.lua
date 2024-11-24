@@ -12,6 +12,24 @@ data.raw["recipe"]["electronic-circuit"].category = "advanced-crafting";
 data.raw["technology"]["electronics"].prerequisites = {"steam-power"}
 data.raw["technology"]["steam-power"].prerequisites = {"glass-processing", "automation-science-pack"};
 
+data.raw["technology"]["fast-inserter"].unit = {
+    count = 25,
+    ingredients = {
+        {"burner-science-pack", 1},
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1}
+    },
+    time = 15
+}
+data.raw["technology"]["fast-inserter"].prerequisites = {
+    "steel-processing", "logistic-science-pack"
+}
+data.raw["recipe"]["fast-inserter"].ingredients = {
+    {type = "item", name = "inserter", amount = 1},
+    {type = "item", name = "electronic-circuit", amount = 2},
+    {type = "item", name = "steel-plate", amount = 1}
+}
+
 table.insert(data.raw["technology"]["electronics"].effects, {
     type = "unlock-recipe",
     recipe = "alt-electronic-circuit-wood"

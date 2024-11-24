@@ -18,6 +18,12 @@ data.raw["technology"]["military-science-pack"].prerequisites = {"stone-wall", "
 --blue sci
 data.raw["recipe"]["chemical-science-pack"].ingredients = {{type = "fluid", name = "sulfuric-acid", amount = 25}, {type = "item", name = "advanced-circuit", amount=3}, {type = "item", name = "engine-unit", amount = 1}}
 data.raw["recipe"]["chemical-science-pack"].category = "crafting-with-fluid"
+data.raw["recipe"]["engine-unit"].ingredients = {
+    {type = "item", name = "steel-plate", amount = 1},
+    {type = "item", name = "iron-gear-wheel", amount = 1},
+    {type = "item", name = "iron-stick", amount = 2},
+    {type = "item", name = "pipe", amount = 3}
+}
 
 --purple sci
 data.raw["recipe"]["production-science-pack"].ingredients = {{type = "fluid", name = "lubricant", amount = 10}, {type = "item", name = "electric-furnace", amount=1}, {type = "item", name = "fast-transport-belt", amount = 4}, {type = "item", name = "uranium-238", amount=1}}

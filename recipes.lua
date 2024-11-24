@@ -107,7 +107,8 @@ data:extend(
             ingredients = {
                 {type = "fluid", name = "steam", amount = 100},
             },
-            results = {{type = "fluid", name = "distilled-water", amount = 10}}
+            results = {{type = "fluid", name = "distilled-water", amount = 10}},
+            subgroup = "fluid"
         },
         {
             type = "recipe",
@@ -120,6 +121,7 @@ data:extend(
             },
             results = {{type = "fluid", name = "hydrogen", amount = 20}, {type = "fluid", name = "oxygen", amount = 10}, {type = "item", name = "salt", amount = 1}},
             main_product = "salt",
+            subgroup = "fluid",
 			allow_productivity = true
         },
         {
@@ -134,6 +136,7 @@ data:extend(
             },
             results = {{type = "fluid", name = "chlorine", amount = 10}, {type = "fluid", name = "steam", amount = 50, temperature = 120}},
             main_product = "chlorine",
+            subgroup = "fluid",
 			allow_productivity = true
         },
         {
@@ -147,6 +150,7 @@ data:extend(
                 {type = "fluid", name = "chlorine", amount = 10},
             },
             results = {{type = "fluid", name = "hydrochloric-acid", amount = 10}},
+            subgroup = "fluid",
 			allow_productivity = true
         },
         {
@@ -159,7 +163,8 @@ data:extend(
                 {type = "fluid", name = "oxygen", amount = 10},
                 {type = "fluid", name = "hydrogen", amount = 20},
             },
-            results = {{type = "fluid", name = "distilled-water", amount = 10}}
+            results = {{type = "fluid", name = "distilled-water", amount = 10}},
+            subgroup = "fluid"
         },
         {
             type = "recipe",
@@ -172,7 +177,8 @@ data:extend(
                 {type = "item", name = "coal", amount = 2},
             },
             results = {{type = "fluid", name = "petroleum-gas", amount = 10}},
-			allow_productivity = true
+			allow_productivity = true,
+            subgroup = "fluid"
         },
         {
             type = "recipe",
@@ -183,7 +189,8 @@ data:extend(
             ingredients = {
             },
             results = {{type = "fluid", name = "oxygen", amount = 2}},
-			allow_productivity = true
+			allow_productivity = true,
+            subgroup = "fluid"
         },
         {
             type = "recipe",
