@@ -12,6 +12,11 @@ data.raw["recipe"]["electronic-circuit"].category = "advanced-crafting";
 data.raw["technology"]["electronics"].prerequisites = {"steam-power"}
 data.raw["technology"]["steam-power"].prerequisites = {"glass-processing", "automation-science-pack"};
 
+table.insert(data.raw["technology"]["electronics"].effects, {
+    type = "unlock-recipe",
+    recipe = "alt-electronic-circuit-wood"
+})
+
 data.raw["technology"]["advanced-circuit"].prerequisites = {"plastics", "sulfur-processing"}
 effects = data.raw["technology"]["advanced-circuit"].effects or {}
 table.insert(effects, {type = "unlock-recipe", recipe = "alt-electronic-circuit-plastic"})

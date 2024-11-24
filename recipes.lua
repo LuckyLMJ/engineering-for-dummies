@@ -16,7 +16,8 @@ data:extend(
                 {type = "item", name = "flying-robot-frame", amount = 1}
             },
             results = {{type = "item", name = "space-science-pack", amount = 10}, {type = "item", name = "copper-cable", amount = 7}},
-            main_product = "space-science-pack"
+            main_product = "space-science-pack",
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -27,7 +28,8 @@ data:extend(
             ingredients = {
                 {type = "item", name = "stone", amount = 1}
             },
-            results = {{type = "item", name = "sand", amount = 3}}
+            results = {{type = "item", name = "sand", amount = 3}},
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -40,6 +42,7 @@ data:extend(
             },
             results = {{type = "item", name = "coal", amount = 1}},
             allow_decomposition = false,
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -50,7 +53,8 @@ data:extend(
             ingredients = {
                 {type = "item", name = "coal", amount = 3}
             },
-            results = {{type = "item", name = "coal-coke", amount = 2}}
+            results = {{type = "item", name = "coal-coke", amount = 2}},
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -62,7 +66,8 @@ data:extend(
                 {type = "item", name = "sand", amount = 5}
             },
             results = {{type = "item", name = "glass-plate", amount = 1}},
-            allow_decomposition = false
+            allow_decomposition = false,
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -76,7 +81,22 @@ data:extend(
                 {type = "item", name = "copper-cable", amount = 5}
             },
             results = {{type = "item", name = "electronic-circuit", amount = 2}},
-            allow_decomposition = false
+            allow_decomposition = false,
+			allow_productivity = true
+        },
+		{
+            type = "recipe",
+            name = "alt-electronic-circuit-wood",
+            category = "crafting",
+            enabled = false,
+            energy_required = 0.5,
+            ingredients = {
+                {type = "item", name = "wood", amount = 1},
+                {type = "item", name = "copper-cable", amount = 3}
+            },
+            results = {{type = "item", name = "electronic-circuit", amount = 1}},
+            allow_decomposition = false,
+            allow_productivity = true
         },
         {
             type = "recipe",
@@ -85,7 +105,7 @@ data:extend(
             enabled = false,
             energy_required = 5,
             ingredients = {
-                {type = "fluid", name = "steam", amount = 10},
+                {type = "fluid", name = "steam", amount = 100},
             },
             results = {{type = "fluid", name = "distilled-water", amount = 10}}
         },
@@ -99,7 +119,8 @@ data:extend(
                 {type = "fluid", name = "water", amount = 10},
             },
             results = {{type = "fluid", name = "hydrogen", amount = 20}, {type = "fluid", name = "oxygen", amount = 10}, {type = "item", name = "salt", amount = 1}},
-            main_product = "salt"
+            main_product = "salt",
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -111,8 +132,9 @@ data:extend(
                 {type = "fluid", name = "distilled-water", amount = 10},
                 {type = "item", name = "salt", amount = 1},
             },
-            results = {{type = "fluid", name = "chlorine", amount = 10}, {type = "fluid", name = "steam", amount = 5, temperature = 120}},
-            main_product = "chlorine"
+            results = {{type = "fluid", name = "chlorine", amount = 10}, {type = "fluid", name = "steam", amount = 50, temperature = 120}},
+            main_product = "chlorine",
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -124,7 +146,8 @@ data:extend(
                 {type = "fluid", name = "distilled-water", amount = 10},
                 {type = "fluid", name = "chlorine", amount = 10},
             },
-            results = {{type = "fluid", name = "hydrochloric-acid", amount = 10}}
+            results = {{type = "fluid", name = "hydrochloric-acid", amount = 10}},
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -148,7 +171,8 @@ data:extend(
                 {type = "fluid", name = "hydrogen", amount = 40},
                 {type = "item", name = "coal", amount = 2},
             },
-            results = {{type = "fluid", name = "petroleum-gas", amount = 10}}
+            results = {{type = "fluid", name = "petroleum-gas", amount = 10}},
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -158,7 +182,8 @@ data:extend(
             energy_required = 0.5,
             ingredients = {
             },
-            results = {{type = "fluid", name = "oxygen", amount = 2}}
+            results = {{type = "fluid", name = "oxygen", amount = 2}},
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -260,7 +285,8 @@ data:extend(
             },
             icon_size = 64,
             icon_mipmaps = 4,
-            subgroup = "fluid"
+            subgroup = "fluid",
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -273,7 +299,8 @@ data:extend(
                 {type = "fluid", name = "sulfuric-acid", amount = 1}
             },
             results = {{type = "item", name = "crushed-iron-ore", amount = 3}, {type = "item", name = "salt", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
-            main_product = "crushed-iron-ore"
+            main_product = "crushed-iron-ore",
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -286,7 +313,8 @@ data:extend(
                 {type = "fluid", name = "hydrochloric-acid", amount = 1}
             },
             results = {{type = "item", name = "crushed-copper-ore", amount = 3}, {type = "item", name = "sulfur", amount = 1, probability = 0.1}, {type = "fluid", name = "waste-water", amount = 1}},
-            main_product = "crushed-copper-ore"
+            main_product = "crushed-copper-ore",
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -299,7 +327,8 @@ data:extend(
                 {type = "item", name = "coal-coke", amount = 1}
             },
             results = {{type = "item", name = "iron-plate", amount = 5}},
-            allow_decomposition = false
+            allow_decomposition = false,
+			allow_productivity = true
         },
         {
             type = "recipe",
@@ -312,24 +341,8 @@ data:extend(
                 {type = "item", name = "sand", amount = 3}
             },
             results = {{type = "item", name = "copper-plate", amount = 5}},
-            allow_decomposition = false
+            allow_decomposition = false,
+			allow_productivity = true
         },
     }
 )
-
-allowProductivity("space-science-pack")
-allowProductivity("sand")
-allowProductivity("glass-plate")
-allowProductivity("charcoal")
-allowProductivity("coal-coke")
-allowProductivity("alt-electronic-circuit-plastic")
-allowProductivity("water-condensation")
-allowProductivity("water-electrolysis")
-allowProductivity("chlorine")
-allowProductivity("hydrochloric-acid")
-allowProductivity("petrogas-from-hydrogen-coal")
-allowProductivity("crushed-iron-ore")
-allowProductivity("crushed-copper-ore")
-allowProductivity("waste-water-purification")
-allowProductivity("crushed-iron-ore-smelting")
-allowProductivity("crushed-copper-ore-smelting")

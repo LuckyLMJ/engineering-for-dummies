@@ -1,7 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.2
 Date: ????
-  Changes:
+  Bugfixes:
+    - Moved wood->circuit recipe to this mod from burner stage for dummies mod
+    - Made productivity modules work in recipes as intended.
+    - Made steam in all recipes multiplied by 10x, to match 2.0's water to steam ratio changes
 ---------------------------------------------------------------------------------------------------
 Version: 0.4.1
 Date: 2024-11-24
