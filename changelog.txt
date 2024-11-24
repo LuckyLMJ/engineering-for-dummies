@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.0
-Date: ????
+Date: 2024-11-24
   Changes:
     - Renamed glass plate to glass pane
     - Fast inserters are now locked behind logistic (green) science and require steel to craft
