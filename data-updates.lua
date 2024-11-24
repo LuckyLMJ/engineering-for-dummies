@@ -1,6 +1,8 @@
 require("science")
 require("util")
 
+data.raw["recipe"]["iron-stick"].enabled = true
+
 data.raw["recipe"]["steel-plate"].ingredients = {{type = "item", name = "iron-plate", amount = 4}, {type = "item", name = "coal-coke", amount = 2}}
 data.raw["technology"]["steel-processing"].prerequisites = {"automation-science-pack", "coal-coke"}
 data.raw["recipe"]["electronic-circuit"].ingredients = {{type = "item", name = "glass-plate", amount = 1}, {type = "item", name = "copper-cable", amount = 3}}

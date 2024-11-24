@@ -46,4 +46,4 @@ table.insert(data.raw["technology"]["space-science-pack"].effects, {type = "unlo
 data.raw["recipe"]["satellite"].ingredients = {{type = "fluid", name = "lubricant", amount=100}, {type = "item", name = "accumulator", amount = 90}, {type = "item", name = "solar-panel", amount = 90}, {type = "item", name = "processing-unit", amount = 90}, {type = "item", name = "radar", amount = 2}, {type = "item", name = "rocket-fuel", amount = 100}, {type = "item", name = "low-density-structure", amount = 100}}
 data.raw["recipe"]["satellite"].category = "crafting-with-fluid"
                                                           
-data.raw["item"]["satellite"].rocket_launch_product = {"space-probe-data", 75}
+data.raw["item"]["satellite"].rocket_launch_products = {{type = "item", name = "space-probe-data", amount = 100}}
